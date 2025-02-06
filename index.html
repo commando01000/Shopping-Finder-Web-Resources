@@ -170,7 +170,7 @@
                   <td>9454885321523</td>
                   <td>15/07/1994</td>
                   <td>
-                    <button class="main-btn">
+                    <button class="main-btn create-invoice">
                       <span>
                         <svg
                           id="vuesax_linear_add-square"
@@ -234,7 +234,7 @@
                   <td>9454885321523</td>
                   <td>11/07/1994</td>
                   <td>
-                    <button class="main-btn">
+                    <button class="main-btn create-invoice">
                       <span>
                         <svg
                           id="vuesax_linear_add-square"
@@ -298,7 +298,7 @@
                   <td>9454885321523</td>
                   <td>13/07/1994</td>
                   <td>
-                    <button class="main-btn">
+                    <button class="main-btn create-invoice">
                       <span>
                         <svg
                           id="vuesax_linear_add-square"
@@ -473,7 +473,118 @@
     <!-- New Invoice -->
     <section id="new-invoice" class="d-none ps-2 pt-3">
       <div class="container-fluid">
-        <div class="row"></div>
+        <div class="row flex-row">
+          <div class="col-md-5">
+            <div class="row gap-0">
+              <div class="col-md-2">
+                <div class="title"><p>New Invoice for</p></div>
+              </div>
+              <div class="col-md-2">
+                <div>Adam Bolton</div>
+              </div>
+              <div class="col-md-2">
+                <a class="main-link" style="cursor: pointer">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                  >
+                    <g
+                      id="vuesax_linear_refresh-2"
+                      data-name="vuesax/linear/refresh-2"
+                      transform="translate(-364 -316)"
+                    >
+                      <g id="refresh-2" transform="translate(364 316)">
+                        <path
+                          id="Vector"
+                          d="M1.11,14.44v3.333"
+                          transform="translate(0.963 -3.48)"
+                          fill="none"
+                          stroke="#1a8b4f"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          id="Vector-2"
+                          data-name="Vector"
+                          d="M13.333,6.667a6.669,6.669,0,0,1-6.667,6.667C2.987,13.333.74,9.627.74,9.627H3.753M0,6.667A6.652,6.652,0,0,1,6.667,0a8.2,8.2,0,0,1,6.667,3.707m0,0V.373m0,3.333h-2.96"
+                          transform="translate(1.333 1.333)"
+                          fill="none"
+                          stroke="#1a8b4f"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          id="Vector-3"
+                          data-name="Vector"
+                          d="M0,0H16V16H0Z"
+                          transform="translate(16 16) rotate(180)"
+                          fill="none"
+                          opacity="0"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                  Change User</a
+                >
+              </div>
+            </div>
+            <br />
+            <div class="row gy-3">
+              <div class="col-md-6">
+                <div id="invoice-number">
+                  <label for="invoiceNumber"> Invoice Number </label>
+                  <input
+                    type="text"
+                    id="invoiceNumber"
+                    class="form-control custom-input-box"
+                    placeholder="Enter invoice number"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div id="store-dropdown">
+                  <label for="store"> Store </label>
+                  <select
+                    id="store"
+                    class="form-select custom-input-box"
+                    aria-label="Default select example"
+                  >
+                    <option selected>Choose a Store</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div id="national-id">
+                  <label for="purshaseDate"> Purshase Date </label>
+                  <input
+                    type="date"
+                    id="purshaseDate"
+                    class="form-control custom-input-box"
+                    placeholder="Enter Purshase Date"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div id="invoiceValue">
+                  <label for="invoicePrice"> Invoice Value </label>
+                  <input
+                    type="text"
+                    id="invoicePrice"
+                    class="form-control custom-input-box"
+                    placeholder="13,512 US$"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- New Invoice -->
@@ -507,12 +618,27 @@
         // Shopper Details Vars
         const shopperDetailsSection =
           document.getElementById("shopper-details");
+
+        const initiateInvoicesBtns =
+          document.querySelectorAll(".create-invoice");
+
+        // New Invoice Vars
+        const newInvoiceSection = document.getElementById("new-invoice");
+
         ShowAndHide();
+
         function ShowAndHide() {
           submitShopperSection.addEventListener("click", () => {
             findShopperSection.classList.add("d-none");
             shopperDetailsSection.classList.remove("d-none");
             initializeDataTable("#shopperTable");
+          });
+
+          initiateInvoicesBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+              shopperDetailsSection.classList.add("d-none");
+              newInvoiceSection.classList.remove("d-none");
+            });
           });
         }
       });
