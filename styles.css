@@ -1,0 +1,150 @@
+/* Use the variables.css */
+@import url("./variables.css");
+
+body {
+  background: #ffffff;
+  opacity: 1;
+}
+
+.main-btn {
+  /* UI Properties */
+  background: var(--unnamed-color-b7efd1);
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 7px;
+  border: none;
+  opacity: 1;
+  width: 138px;
+  height: 40px;
+}
+
+.main-btn:hover {
+  background: var(--unnamed-color-1a8b4f);
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 7px;
+  border: none;
+  opacity: 1;
+  width: 138px;
+  height: 40px;
+  .main-text {
+    color: white !important;
+  }
+  .main-btn.main-text {
+    color: white !important;
+  }
+}
+
+.main-text {
+  font: var(--unnamed-font-style-normal) var(--unnamed-font-weight-normal)
+    var(--unnamed-font-size-14) / var(--unnamed-line-spacing-17)
+    var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  color: #231a3e;
+  opacity: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.shopper-card {
+  background: var(--unnamed-color-f5f7fa);
+  border-radius: 10px;
+  opacity: 1;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+  width: 100%;
+  height: 100%;
+}
+
+
+.title {
+  font: var(--unnamed-font-style-normal) medium var(--unnamed-font-size-20) /
+    var(--unnamed-line-spacing-24) var(--unnamed-font-family-inter);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: left;
+  color: var(--unnamed-color-0f172a);
+  opacity: 1;
+  width: 143px;
+  height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.input-box {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border-radius: 5px;
+  opacity: 1;
+}
+
+/* Shopper Datatable Styles */
+
+#shopperTable tbody tr:nth-child(odd) {
+  background-color: #f5f7fa; /* Light gray for odd rows */
+}
+
+#shopperTable tbody tr:nth-child(even) {
+  background-color: #ffffff; /* White for even rows */
+}
+
+/* Hover effect for rows */
+#shopperTable tbody tr:hover {
+  background-color: #e4e7eb; /* Slightly darker color on hover */
+}
+
+/* Styling the actions */
+.btn-success {
+  background-color: #b7efd1; /* Greenish background */
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.normal-link {
+  width: 78px;
+  height: 17px;
+  /* UI Properties */
+  font: normal 14px/17px Inter;
+  letter-spacing: 0px;
+  color: #685c8a;
+  text-align: left;
+  text-decoration: underline;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.main-link {
+  width: 148px;
+  height: 17px;
+  font: normal 14px/17px Inter;
+  letter-spacing: 0px;
+  color: #1a8b4f;
+  text-align: left;
+  text-decoration: underline;
+  opacity: 1;
+  cursor: pointer;
+}
+
+th {
+  width: 55px;
+  height: 25px;
+  font: medium 18px/27px Poppins !important;
+  letter-spacing: 0px;
+  color: #1f2933;
+  text-align: left !important;
+  opacity: 1;
+}
+table.dataTable th.dt-type-numeric,
+table.dataTable th.dt-type-date,
+table.dataTable td.dt-type-numeric,
+table.dataTable td.dt-type-date {
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) {
+  #find-shopper .shopper-card .content {
+    flex-direction: column !important;
+  }
+}

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Shopper</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Find Shopper -->
+    <section class="ps-2 pt-3" id="find-shopper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-6">
+            <div class="shopper-card p-5 pt-3">
+              <h1 class="title">Find a Shopper</h1>
+              <div class="d-flex content gap-3 align-items-center">
+                <div id="phone-number">
+                  <label for="phoneNumber"> Phone Number </label>
+                  <input
+                    type="text"
+                    id="phoneNumber"
+                    class="form-control input-box"
+                    placeholder="Enter phone number"
+                  />
+                </div>
+
+                <div id="national-id">
+                  <label for="nationalId"> National ID </label>
+                  <input
+                    type="text"
+                    id="nationalId"
+                    class="form-control input-box"
+                    placeholder="Enter National ID"
+                  />
+                </div>
+
+                <div id="shopper-submit" class="mt-4">
+                  <button id="submit" class="main-btn">
+                    <span class="main-text">Find Shoppers</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Find Shopper -->
+
+    <!-- Shopper Details -->
+    <section id="shopper-details" class="d-none ps-2 pt-3">
+      <div class="container-fluid">
+        <div class="d-flex gap-2 align-items-baseline">
+          <h1 class="title">
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24.457"
+                height="24.457"
+                viewBox="0 0 24.457 24.457"
+              >
+                <g
+                  id="Group_127"
+                  data-name="Group 127"
+                  transform="translate(0.75 0.75)"
+                >
+                  <path
+                    id="Vector"
+                    d="M11.478,22.957A11.478,11.478,0,1,0,0,11.478,11.512,11.512,0,0,0,11.478,22.957Z"
+                    transform="translate(0 0)"
+                    fill="none"
+                    stroke="#1a8b4f"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    id="Vector-2"
+                    data-name="Vector"
+                    d="M0,3.248,3.248,6.5,9.757,0"
+                    transform="translate(6.6 8.23)"
+                    fill="none"
+                    stroke="#1a8b4f"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                </g>
+              </svg> </span
+            >Shopper Found
+          </h1>
+          <a class="main-link" style="cursor: pointer">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+            >
+              <g
+                id="vuesax_linear_refresh-2"
+                data-name="vuesax/linear/refresh-2"
+                transform="translate(-364 -316)"
+              >
+                <g id="refresh-2" transform="translate(364 316)">
+                  <path
+                    id="Vector"
+                    d="M1.11,14.44v3.333"
+                    transform="translate(0.963 -3.48)"
+                    fill="none"
+                    stroke="#1a8b4f"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    id="Vector-2"
+                    data-name="Vector"
+                    d="M13.333,6.667a6.669,6.669,0,0,1-6.667,6.667C2.987,13.333.74,9.627.74,9.627H3.753M0,6.667A6.652,6.652,0,0,1,6.667,0a8.2,8.2,0,0,1,6.667,3.707m0,0V.373m0,3.333h-2.96"
+                    transform="translate(1.333 1.333)"
+                    fill="none"
+                    stroke="#1a8b4f"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    id="Vector-3"
+                    data-name="Vector"
+                    d="M0,0H16V16H0Z"
+                    transform="translate(16 16) rotate(180)"
+                    fill="none"
+                    opacity="0"
+                  />
+                </g>
+              </g>
+            </svg>
+            Change User</a
+          >
+        </div>
+
+        <div class="row">
+          <div class="col-md-10">
+            <!-- DataTable Element -->
+            <table id="shopperTable" class="display w-100">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Phone Number</th>
+                  <th>ID Number</th>
+                  <th>Birthdate</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Adam Bolton</td>
+                  <td>+659451232</td>
+                  <td>9454885321523</td>
+                  <td>15/07/1994</td>
+                  <td>
+                    <button class="main-btn">
+                      <span>
+                        <svg
+                          id="vuesax_linear_add-square"
+                          data-name="vuesax/linear/add-square"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <g id="add-square">
+                            <path
+                              id="Vector"
+                              d="M0,0H5.333"
+                              transform="translate(5.333 8)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-2"
+                              data-name="Vector"
+                              d="M0,5.333V0"
+                              transform="translate(8 5.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-3"
+                              data-name="Vector"
+                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                              transform="translate(1.333 1.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-4"
+                              data-name="Vector"
+                              d="M0,0H16V16H0Z"
+                              fill="none"
+                              opacity="0"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                      <span class="main-text">Invoice</span>
+                    </button>
+                    <a href="#" class="normal-link ms-2">View Profile</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>John Mark</td>
+                  <td>+659451232</td>
+                  <td>9454885321523</td>
+                  <td>11/07/1994</td>
+                  <td>
+                    <button class="main-btn">
+                      <span>
+                        <svg
+                          id="vuesax_linear_add-square"
+                          data-name="vuesax/linear/add-square"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <g id="add-square">
+                            <path
+                              id="Vector"
+                              d="M0,0H5.333"
+                              transform="translate(5.333 8)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-2"
+                              data-name="Vector"
+                              d="M0,5.333V0"
+                              transform="translate(8 5.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-3"
+                              data-name="Vector"
+                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                              transform="translate(1.333 1.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-4"
+                              data-name="Vector"
+                              d="M0,0H16V16H0Z"
+                              fill="none"
+                              opacity="0"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                      <span class="main-text">Invoice</span>
+                    </button>
+                    <a href="#" class="normal-link ms-2">View Profile</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>John Mark</td>
+                  <td>+659451232</td>
+                  <td>9454885321523</td>
+                  <td>13/07/1994</td>
+                  <td>
+                    <button class="main-btn">
+                      <span>
+                        <svg
+                          id="vuesax_linear_add-square"
+                          data-name="vuesax/linear/add-square"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <g id="add-square">
+                            <path
+                              id="Vector"
+                              d="M0,0H5.333"
+                              transform="translate(5.333 8)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-2"
+                              data-name="Vector"
+                              d="M0,5.333V0"
+                              transform="translate(8 5.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-3"
+                              data-name="Vector"
+                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                              transform="translate(1.333 1.333)"
+                              fill="none"
+                              stroke="#231a3e"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.2"
+                            />
+                            <path
+                              id="Vector-4"
+                              data-name="Vector"
+                              d="M0,0H16V16H0Z"
+                              fill="none"
+                              opacity="0"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                      <span class="main-text">Invoice</span>
+                    </button>
+                    <a href="#" class="normal-link ms-2">View Profile</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <span>
+              <svg
+                id="info-circle"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="27"
+                viewBox="0 0 24 27"
+              >
+                <path
+                  id="Vector"
+                  d="M10,23c5.5,0,10-5.175,10-11.5S15.5,0,10,0,0,5.175,0,11.5,4.5,23,10,23Z"
+                  transform="translate(2 2)"
+                  fill="none"
+                  stroke="#c77b30"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  id="Vector-2"
+                  data-name="Vector"
+                  d="M0,0V5"
+                  transform="translate(12 9.263)"
+                  fill="none"
+                  stroke="#c77b30"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+                <path
+                  id="Vector-3"
+                  data-name="Vector"
+                  d="M0,0H.009"
+                  transform="translate(11.995 18)"
+                  fill="none"
+                  stroke="#c77b30"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                />
+                <path
+                  id="Vector-4"
+                  data-name="Vector"
+                  d="M0,0H24V27H0Z"
+                  fill="none"
+                  opacity="0"
+                />
+              </svg>
+              Haven't found who you were looking for ?
+            </span>
+            &nbsp;
+            <a class="main-link">
+              <span
+                ><svg
+                  id="vuesax_linear_add-square"
+                  data-name="vuesax/linear/add-square"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                >
+                  <g id="add-square">
+                    <path
+                      id="Vector"
+                      d="M0,0H5.333"
+                      transform="translate(5.333 8)"
+                      fill="none"
+                      stroke="#231a3e"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.2"
+                    />
+                    <path
+                      id="Vector-2"
+                      data-name="Vector"
+                      d="M0,5.333V0"
+                      transform="translate(8 5.333)"
+                      fill="none"
+                      stroke="#231a3e"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.2"
+                    />
+                    <path
+                      id="Vector-3"
+                      data-name="Vector"
+                      d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                      transform="translate(1.333 1.333)"
+                      fill="none"
+                      stroke="#231a3e"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.2"
+                    />
+                    <path
+                      id="Vector-4"
+                      data-name="Vector"
+                      d="M0,0H16V16H0Z"
+                      fill="none"
+                      opacity="0"
+                    />
+                  </g>
+                </svg>
+              </span>
+              Register New Shopper</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Shopper Details -->
+
+    <!-- New Invoice -->
+    <section id="new-invoice" class="d-none ps-2 pt-3">
+      <div class="container-fluid">
+        <div class="row"></div>
+      </div>
+    </section>
+    <!-- New Invoice -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+
+    <script>
+      // dom loaded
+      document.addEventListener("DOMContentLoaded", () => {
+        // Find Shopper Vars
+        const submitShopperSection = document.getElementById("shopper-submit");
+        const phoneNumber = document.getElementById("phoneNumber");
+        const nationalId = document.getElementById("nationalId");
+        const findShopperSection = document.getElementById("find-shopper");
+
+        // Shopper Details Vars
+        const shopperDetailsSection =
+          document.getElementById("shopper-details");
+        ShowAndHide();
+        function ShowAndHide() {
+          submitShopperSection.addEventListener("click", () => {
+            findShopperSection.classList.add("d-none");
+            shopperDetailsSection.classList.remove("d-none");
+            initializeDataTable("#shopperTable");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
