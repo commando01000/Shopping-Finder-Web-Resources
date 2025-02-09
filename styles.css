@@ -63,11 +63,30 @@ body {
   text-align: left;
   color: var(--unnamed-color-0f172a);
   opacity: 1;
-  width: 143px;
+  width: 143px !important;
   height: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+label {
+  height: 20px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #0f172a;
+  text-align: left;
+  opacity: 1;
+}
+
+span,
+a {
+  white-space: nowrap; /* Prevent text from wrapping inside individual elements */
+  margin-right: 5px; /* Add some spacing between items */
 }
 
 .input-box {
@@ -160,6 +179,44 @@ select.form-select {
   background-position: right 10px center;
   background-size: 16px 16px;
   padding-right: 30px; /* Add space for the dropdown icon */
+}
+
+/* Wrapper for the date picker */
+.date-picker-wrapper {
+  position: relative;
+}
+
+/* Ensure the default date picker icon is functional and aligned */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  right: 10px; /* Align the default icon to the same position as the custom one */
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0; /* Hide the default icon visually */
+  pointer-events: auto; /* Keep it functional */
+}
+
+/* Container for the input and custom icon */
+.date-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the date input box */
+.custom-input-box {
+  padding-right: 40px; /* Space for the custom icon */
+  width: 100%;
+}
+
+/* Custom calendar icon (SVG) */
+.custom-calendar-icon {
+  position: absolute;
+  right: 10px; /* Align the custom icon with the default one */
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevent the custom icon from blocking clicks */
+  z-index: 1;
 }
 
 /* Media queries */
