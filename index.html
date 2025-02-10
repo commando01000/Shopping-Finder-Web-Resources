@@ -1871,6 +1871,8 @@
 
     <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -1964,24 +1966,29 @@
       const addAnotherInvoice = document.querySelector(".add-another-invoice");
       var shopperIdd;
       // Decrease the opacity of the form container
+      // Decrease the opacity of the form container
       if (submitInvoiceButton && successMessage) {
         submitInvoiceButton.addEventListener("click", async () => {
-          await createPurshaseInvoice(shopperIdd);
-          // Show the success message with smooth transition
-          successMessage.classList.add("show"); // Add 'show' class to make it visible
+          const errors = await createPurshaseInvoice(shopperIdd); // Call the function and get errors (if any)
 
-          // Disable all form fields
-          formFields.forEach((field) => {
-            field.disabled = true;
-          });
+          // If there are no errors, proceed with showing the success message
+          if (!errors) {
+            // Show the success message with smooth transition
+            successMessage.classList.add("show"); // Add 'show' class to make it visible
 
-          if (formContainer) {
-            formContainer.style.opacity = "0.5"; // Reduce opacity
-            formContainer.style.pointerEvents = "none"; // Prevent interactions
+            // Disable all form fields
+            formFields.forEach((field) => {
+              field.disabled = true;
+            });
+
+            if (formContainer) {
+              formContainer.style.opacity = "0.5"; // Reduce opacity
+              formContainer.style.pointerEvents = "none"; // Prevent interactions
+            }
+
+            // Optionally disable the submit button itself
+            submitInvoiceButton.disabled = true;
           }
-
-          // Optionally disable the submit button itself
-          submitInvoiceButton.disabled = true;
         });
       }
 
@@ -2047,34 +2054,78 @@
       async function createPurshaseInvoice(shopperId) {
         console.log("Creating Invoice for Shopper ID:", shopperId);
 
-        const ShopperId = shopperId;
-        const invoiceNumber = document.getElementById("invoiceNumber").value;
-        const store = document.getElementById("store").value;
-        const mall = document.getElementById("mall").value;
-        const raffle = document.getElementById("raffle").value;
-        const purchaseDate = document.getElementById("purshaseDate").value;
-        let invoicePrice = document.getElementById("invoicePrice").value;
+        // Get input values
+        const invoiceNumber = document
+          .getElementById("invoiceNumber")
+          .value.trim();
+        const store = document.getElementById("store").value.trim();
+        const mall = document.getElementById("mall").value.trim();
+        const raffle = document.getElementById("raffle").value.trim();
+        const purchaseDate = document
+          .getElementById("purshaseDate")
+          .value.trim();
+        let invoicePrice = document.getElementById("invoicePrice").value.trim();
+
+        // Validation
+        const errors = [];
+        if (!invoiceNumber) errors.push("Invoice Number is required.");
+        if (!mall) errors.push("Please select a mall.");
+        if (!store) errors.push("Please select a store.");
+        if (!raffle) errors.push("Please select a raffle.");
+        if (!purchaseDate) errors.push("Purchase Date is required.");
+        if (!invoicePrice || isNaN(parseFloat(invoicePrice))) {
+          errors.push("Invoice Price must be a valid number.");
+        }
+
+        // Show errors if any
+        if (errors.length > 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Validation Errors",
+            html: `<ul style="text-align:left;">${errors
+              .map((err) => `<li>${err}</li>`)
+              .join("")}</ul>`,
+          });
+          return true; // Return true indicating there are errors
+        }
+
+        // Format the invoice price as a number
         invoicePrice = parseFloat(invoicePrice);
 
-        var record = {};
-        record.blser_invoicenumber = invoiceNumber; // Text
-        record["blser_ShoppingStore@odata.bind"] = `/blser_stores(${store})`; // Lookup
-        record.blser_dateofpurchase = new Date(purchaseDate).toISOString(); // Date Time
-        record.blser_amount = Number(parseFloat(invoicePrice).toFixed(4)); // Currency
-        record["blser_ShoppingMall@odata.bind"] = `/blser_malls(${mall})`; // Lookup
-        record["blser_Raffle@odata.bind"] = `/blser_raffles(${raffle})`; // Lookup
+        // Construct the record
+        const record = {
+          blser_invoicenumber: invoiceNumber, // Text
+          "blser_ShoppingStore@odata.bind": `/blser_stores(${store})`, // Lookup
+          blser_dateofpurchase: new Date(purchaseDate).toISOString(), // Date Time
+          blser_amount: Number(parseFloat(invoicePrice).toFixed(4)), // Currency
+          "blser_ShoppingMall@odata.bind": `/blser_malls(${mall})`, // Lookup
+          "blser_Raffle@odata.bind": `/blser_raffles(${raffle})`, // Lookup
+        };
 
         console.log("Record: ", record);
 
-        parent.Xrm.WebApi.createRecord("blser_purchaseinvoice", record).then(
-          function success(result) {
-            var newId = result.id;
-            console.log(newId);
-          },
-          function (error) {
-            console.log(error.message);
-          }
-        );
+        try {
+          const result = await parent.Xrm.WebApi.createRecord(
+            "blser_purchaseinvoice",
+            record
+          );
+          const newId = result.id;
+          Swal.fire({
+            icon: "success",
+            title: "Success!",
+            text: "Purchase Invoice created successfully!",
+            footer: `Invoice ID: ${newId}`,
+          });
+          return false; // Return false indicating no errors
+        } catch (error) {
+          console.error("Error creating Purchase Invoice:", error.message);
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: `Failed to create Purchase Invoice: ${error.message}`,
+          });
+          return true; // Return true indicating there was an error
+        }
       }
 
       async function getAllRaffles() {
