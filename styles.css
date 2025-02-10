@@ -196,18 +196,17 @@ a {
 }
 
 .main-btn:hover {
-  background: var(--unnamed-color-1a8b4f);
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 7px;
   border: none;
-  opacity: 1;
+  opacity: 0.8;
   width: 138px;
   height: 40px;
   .main-text {
-    color: white !important;
+    color: black !important;
   }
   .main-btn.main-text {
-    color: white !important;
+    color: black !important;
   }
 }
 
@@ -293,25 +292,86 @@ a {
 
 /* Shopper Datatable Styles */
 
+/* Remove default background color from the first column */
+table.dataTable.order-column > tbody tr > .sorting_1,
+table.dataTable.order-column > tbody tr > .sorting_2,
+table.dataTable.order-column > tbody tr > .sorting_3,
+table.dataTable.display > tbody tr > .sorting_1,
+table.dataTable.display > tbody tr > .sorting_2,
+table.dataTable.display > tbody tr > .sorting_3 {
+  box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+table.dataTable.stripe > tbody > tr:nth-child(odd) > *,
+table.dataTable.display > tbody > tr:nth-child(odd) > * {
+  box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* Rounded corners for the first <th> in the header */
+table.dataTable thead > tr > th:first-child {
+  border-top-left-radius: 10px !important; /* Top-left corner rounding */
+  border-bottom-left-radius: 10px !important; /* Optional, if needed */
+}
+
+/* Rounded corners for the last <th> in the header */
+table.dataTable thead > tr > th:last-child {
+  border-top-right-radius: 10px !important; /* Top-right corner rounding */
+  border-bottom-right-radius: 10px !important; /* Optional, if needed */
+}
+
 #shopperTable tbody tr:nth-child(odd) {
-  background-color: #f5f7fa; /* Light gray for odd rows */
+  background-color: #ffffff !important;
 }
 
 #shopperTable tbody tr:nth-child(even) {
-  background-color: #ffffff; /* White for even rows */
+  background-color: #f5f7fa !important;
 }
 
-/* Hover effect for rows */
+/* Apply rounded corners to the first and last cells of even rows */
+#shopperTable tbody tr:nth-child(even) td:first-child {
+  border-bottom-left-radius: 8px; /* Bottom-left corner rounding */
+  border-top-left-radius: 8px; /* Top-left corner rounding */
+}
+
+#shopperTable tbody tr:nth-child(even) td:last-child {
+  border-bottom-right-radius: 8px; /* Bottom-right corner rounding */
+  border-top-right-radius: 8px; /* Top-right corner rounding */
+}
+
+table.dataTable > thead > tr > th,
+table.dataTable > thead > tr > td {
+  padding: 10px;
+  border: none !important;
+}
+
+table.dataTable.row-border > tbody > tr > *,
+table.dataTable.display > tbody > tr > * {
+  border: none !important;
+}
+
 #shopperTable tbody tr:hover {
-  background-color: #e4e7eb; /* Slightly darker color on hover */
+  background-color: #e4e7eb;
+}
+
+/* Apply rounded corners to the first and last cells of even rows */
+#inVoicesTable tbody tr:nth-child(even) td:first-child {
+  border-bottom-left-radius: 8px; /* Bottom-left corner rounding */
+  border-top-left-radius: 8px; /* Top-left corner rounding */
+}
+
+#inVoicesTable tbody tr:nth-child(even) td:last-child {
+  border-bottom-right-radius: 8px; /* Bottom-right corner rounding */
+  border-top-right-radius: 8px; /* Top-right corner rounding */
 }
 
 #inVoicesTable tbody tr:nth-child(odd) {
-  background-color: #f5f7fa; /* Light gray for odd rows */
+  background-color: #ffffff; /* Light gray for odd rows */
 }
 
 #inVoicesTable tbody tr:nth-child(even) {
-  background-color: #ffffff; /* White for even rows */
+  background-color: #f5f7fa; /* White for even rows */
 }
 
 /* Hover effect for rows */
@@ -374,10 +434,12 @@ a {
 
 th {
   width: 55px;
-  height: 25px;
+  height: 52px;
   font: medium 18px/27px Poppins !important;
   letter-spacing: 0px;
-  color: #1f2933;
+  background: var(--unnamed-color-f5f7fa) 0% 0% no-repeat padding-box;
+  background: #f5f7fa 0% 0% no-repeat padding-box;
+  opacity: 1;
   text-align: left !important;
   opacity: 1;
 }
