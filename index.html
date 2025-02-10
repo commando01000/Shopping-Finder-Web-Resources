@@ -30,9 +30,10 @@
     <section class="ps-2 pt-3" id="find-shopper">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-6">
+          <div class="col-sm-12 col-md-12 col-lg-8 col-xl-5">
             <div class="shopper-card p-5 pt-3">
               <h1 class="title fs-5">Find a Shopper</h1>
+              <div id="message" class="mt-2"></div>
               <div class="d-flex content pt-2 gap-3 align-items-center">
                 <div id="phone-number">
                   <label class="fs-6" for="phoneNumber"> Phone Number </label>
@@ -62,11 +63,11 @@
               </div>
             </div>
           </div>
+          <div id="shopper-not-found-message" class="mt-2"></div>
         </div>
       </div>
     </section>
     <!-- Find Shopper -->
-
     <!-- Shopper Not Found -->
     <section class="ps-2 d-none pt-3" id="shopper-not-found">
       <div class="container-fluid">
@@ -132,9 +133,9 @@
             <span class="fs-5">Shopper Not Found</span>
           </span>
           &nbsp;
-          <a class="main-link change-user-btn">
-            <span
-              ><svg
+          <a class="main-link">
+            <span>
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -179,8 +180,8 @@
                 </g>
               </svg>
             </span>
-            Change User</a
-          >
+            Change User
+          </a>
         </div>
 
         <!-- Form -->
@@ -203,8 +204,8 @@
                         class="form-check-input rounded-5"
                       />
                       <span style="color: #704c38 !important" class="ms-2">
-                        National ID</span
-                      >
+                        National ID
+                      </span>
                     </span>
                   </div>
                 </div>
@@ -219,14 +220,13 @@
                         class="form-check-input rounded-5"
                       />
                       <span style="color: #704c38 !important" class="ms-2">
-                        Passport</span
-                      >
+                        Passport
+                      </span>
                     </span>
                   </div>
                 </div>
               </div>
               <!-- National Id Or Passport Checkboxes -->
-
               <!-- Full Name & National ID -->
               <div class="row mt-3">
                 <div class="col-md-4">
@@ -295,14 +295,13 @@
                         class="form-check-input"
                       />
                       <span style="color: #704c38 !important" class="ms-2">
-                        WhatsApp Available</span
-                      >
+                        WhatsApp Available
+                      </span>
                     </span>
                   </div>
                 </div>
               </div>
               <!-- Phone Number -->
-
               <!-- Birthdate & Gender -->
               <div class="row align-items-center mt-3">
                 <div class="col-md-4">
@@ -475,7 +474,6 @@
                 </div>
               </div>
               <!-- Birthdate & Gender -->
-
               <!-- Submission -->
               <div class="row mt-3 align-items-center flex-row">
                 <div class="col-md-4">
@@ -537,9 +535,9 @@
                 </div>
 
                 <div class="col-md-2">
-                  <a class="text-dark back-btn"
-                    ><span
-                      ><svg
+                  <a class="text-dark">
+                    <span>
+                      <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
                         height="16"
@@ -584,8 +582,8 @@
                         </g>
                       </svg>
                     </span>
-                    Back to Search Results</a
-                  >
+                    Back to Search Results
+                  </a>
                 </div>
               </div>
             </div>
@@ -595,7 +593,6 @@
       </div>
     </section>
     <!-- Shopper Not Found -->
-
     <!-- Shopper Details -->
     <section id="shopper-details" class="d-none ps-2 pt-3">
       <div class="container-fluid">
@@ -638,7 +635,7 @@
               </svg> </span
             >Shopper Found
           </h1>
-          <a class="main-link change-user-btn" style="cursor: pointer">
+          <a class="main-link" style="cursor: pointer" id="changeUserBtn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -683,8 +680,8 @@
                 </g>
               </g>
             </svg>
-            Change User</a
-          >
+            Change User
+          </a>
         </div>
 
         <div class="row">
@@ -700,206 +697,7 @@
                   <th>Actions</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>Adam Bolton</td>
-                  <td>+659451232</td>
-                  <td>9454885321523</td>
-                  <td>15/07/1994</td>
-                  <td>
-                    <button class="main-btn create-invoice">
-                      <span>
-                        <svg
-                          id="vuesax_linear_add-square"
-                          data-name="vuesax/linear/add-square"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                        >
-                          <g id="add-square">
-                            <path
-                              id="Vector"
-                              d="M0,0H5.333"
-                              transform="translate(5.333 8)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-2"
-                              data-name="Vector"
-                              d="M0,5.333V0"
-                              transform="translate(8 5.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-3"
-                              data-name="Vector"
-                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
-                              transform="translate(1.333 1.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-4"
-                              data-name="Vector"
-                              d="M0,0H16V16H0Z"
-                              fill="none"
-                              opacity="0"
-                            />
-                          </g>
-                        </svg>
-                      </span>
-                      <span class="main-text">Invoice</span>
-                    </button>
-                    <a href="#" class="normal-link ms-2 view-shopper-profile"
-                      >View Profile</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>John Mark</td>
-                  <td>+659451232</td>
-                  <td>9454885321523</td>
-                  <td>11/07/1994</td>
-                  <td>
-                    <button class="main-btn create-invoice">
-                      <span>
-                        <svg
-                          id="vuesax_linear_add-square"
-                          data-name="vuesax/linear/add-square"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                        >
-                          <g id="add-square">
-                            <path
-                              id="Vector"
-                              d="M0,0H5.333"
-                              transform="translate(5.333 8)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-2"
-                              data-name="Vector"
-                              d="M0,5.333V0"
-                              transform="translate(8 5.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-3"
-                              data-name="Vector"
-                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
-                              transform="translate(1.333 1.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-4"
-                              data-name="Vector"
-                              d="M0,0H16V16H0Z"
-                              fill="none"
-                              opacity="0"
-                            />
-                          </g>
-                        </svg>
-                      </span>
-                      <span class="main-text">Invoice</span>
-                    </button>
-                    <a href="#" class="normal-link ms-2 view-shopper-profile"
-                      >View Profile</a
-                    >
-                  </td>
-                </tr>
-                <tr>
-                  <td>John Mark</td>
-                  <td>+659451232</td>
-                  <td>9454885321523</td>
-                  <td>13/07/1994</td>
-                  <td>
-                    <button class="main-btn create-invoice">
-                      <span>
-                        <svg
-                          id="vuesax_linear_add-square"
-                          data-name="vuesax/linear/add-square"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                        >
-                          <g id="add-square">
-                            <path
-                              id="Vector"
-                              d="M0,0H5.333"
-                              transform="translate(5.333 8)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-2"
-                              data-name="Vector"
-                              d="M0,5.333V0"
-                              transform="translate(8 5.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-3"
-                              data-name="Vector"
-                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
-                              transform="translate(1.333 1.333)"
-                              fill="none"
-                              stroke="#231a3e"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.2"
-                            />
-                            <path
-                              id="Vector-4"
-                              data-name="Vector"
-                              d="M0,0H16V16H0Z"
-                              fill="none"
-                              opacity="0"
-                            />
-                          </g>
-                        </svg>
-                      </span>
-                      <span class="main-text">Invoice</span>
-                    </button>
-                    <a href="#" class="normal-link view-shopper-profile ms-2"
-                      >View Profile</a
-                    >
-                  </td>
-                </tr>
-              </tbody>
+              <tbody></tbody>
             </table>
             <span>
               <svg
@@ -952,9 +750,9 @@
               Haven't found who you were looking for ?
             </span>
             &nbsp;
-            <a class="main-link register-new-shopper">
-              <span
-                ><svg
+            <a class="main-link" id="register-new-shopper">
+              <span>
+                <svg
                   id="vuesax_linear_add-square"
                   data-name="vuesax/linear/add-square"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1005,14 +803,13 @@
                   </g>
                 </svg>
               </span>
-              Register New Shopper</a
-            >
+              Register New Shopper
+            </a>
           </div>
         </div>
       </div>
     </section>
     <!-- Shopper Details -->
-
     <!-- Shopper Profile -->
     <section id="shopper-profile" class="ps-2 pt-3 d-none">
       <div class="container-fluid">
@@ -1071,8 +868,8 @@
                       </g>
                     </g>
                   </svg>
-                  Change User</a
-                >
+                  Change User
+                </a>
               </div>
             </div>
             <div style="height: 140px !important" class="row mt-4 gap-3">
@@ -1285,11 +1082,28 @@
                   <div class="col-md-6">
                     <div class="d-flex flex-column">
                       <div>
-                        <svg id="unisex-symbol-color-icon" xmlns="http://www.w3.org/2000/svg" width="24.477" height="24" viewBox="0 0 24.477 24">
-                          <path id="Path_40134" data-name="Path 40134" d="M159.348,4.489a6.3,6.3,0,0,1,3.835,1.294l3.961-3.961h-1.468a.911.911,0,1,1,0-1.821h3.595a.911.911,0,0,1,.911.911V4.617a.911.911,0,1,1-1.821,0V3.23l-3.882,3.882a6.33,6.33,0,0,1-8.092,9.3A7.074,7.074,0,0,0,157.77,15a4.469,4.469,0,1,0-2.526-2.406,3.757,3.757,0,0,1-1.383,1.376,6.33,6.33,0,0,1,5.487-9.484Z" transform="translate(-145.705)" fill="#221e2e"/>
-                          <path id="Path_40135" data-name="Path 40135" d="M6.343,92.55a6.317,6.317,0,0,1,2.974.739,7.1,7.1,0,0,0-.708.62,7.028,7.028,0,0,0-.681.79,4.48,4.48,0,1,0,2.525,2.4,3.727,3.727,0,0,1,.588-.764,3.684,3.684,0,0,1,.8-.608,6.345,6.345,0,0,1-4.588,9.441v1.585H9.892a.911.911,0,0,1,0,1.821H7.254v2.638a.911.911,0,1,1-1.821,0v-2.638H2.794a.911.911,0,1,1,0-1.821H5.432v-1.585A6.343,6.343,0,0,1,6.343,92.55Z" transform="translate(0 -88.126)" fill="#221e2e"/>
+                        <svg
+                          id="unisex-symbol-color-icon"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24.477"
+                          height="24"
+                          viewBox="0 0 24.477 24"
+                        >
+                          <path
+                            id="Path_40134"
+                            data-name="Path 40134"
+                            d="M159.348,4.489a6.3,6.3,0,0,1,3.835,1.294l3.961-3.961h-1.468a.911.911,0,1,1,0-1.821h3.595a.911.911,0,0,1,.911.911V4.617a.911.911,0,1,1-1.821,0V3.23l-3.882,3.882a6.33,6.33,0,0,1-8.092,9.3A7.074,7.074,0,0,0,157.77,15a4.469,4.469,0,1,0-2.526-2.406,3.757,3.757,0,0,1-1.383,1.376,6.33,6.33,0,0,1,5.487-9.484Z"
+                            transform="translate(-145.705)"
+                            fill="#221e2e"
+                          />
+                          <path
+                            id="Path_40135"
+                            data-name="Path 40135"
+                            d="M6.343,92.55a6.317,6.317,0,0,1,2.974.739,7.1,7.1,0,0,0-.708.62,7.028,7.028,0,0,0-.681.79,4.48,4.48,0,1,0,2.525,2.4,3.727,3.727,0,0,1,.588-.764,3.684,3.684,0,0,1,.8-.608,6.345,6.345,0,0,1-4.588,9.441v1.585H9.892a.911.911,0,0,1,0,1.821H7.254v2.638a.911.911,0,1,1-1.821,0v-2.638H2.794a.911.911,0,1,1,0-1.821H5.432v-1.585A6.343,6.343,0,0,1,6.343,92.55Z"
+                            transform="translate(0 -88.126)"
+                            fill="#221e2e"
+                          />
                         </svg>
-                        
                       </div>
                       <div>
                         <label for="gender_Profile">Gender</label>
@@ -1299,24 +1113,138 @@
                   </div>
                   <div class="col-md-6">
                     <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <g id="vuesax_linear_calendar" data-name="vuesax/linear/calendar" transform="translate(-492 -188)">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                      >
+                        <g
+                          id="vuesax_linear_calendar"
+                          data-name="vuesax/linear/calendar"
+                          transform="translate(-492 -188)"
+                        >
                           <g id="calendar">
-                            <path id="Vector" d="M0,0V3" transform="translate(500 190)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                            <path id="Vector-2" data-name="Vector" d="M0,0V3" transform="translate(508 190)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                            <path id="Vector-3" data-name="Vector" d="M0,0H17" transform="translate(495.5 197.09)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                            <path id="Vector-4" data-name="Vector" d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z" transform="translate(495 191.5)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                            <path id="Vector-5" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(492 188)" fill="none" opacity="0"/>
-                            <path id="Vector-6" data-name="Vector" d="M.495.5H.5" transform="translate(507.2 201.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            <path id="Vector-7" data-name="Vector" d="M.495.5H.5" transform="translate(507.2 204.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            <path id="Vector-8" data-name="Vector" d="M.495.5H.5" transform="translate(503.501 201.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            <path id="Vector-9" data-name="Vector" d="M.495.5H.5" transform="translate(503.501 204.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            <path id="Vector-10" data-name="Vector" d="M.495.5H.5" transform="translate(499.8 201.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                            <path id="Vector-11" data-name="Vector" d="M.495.5H.5" transform="translate(499.8 204.2)" fill="none" stroke="#0f172a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            <path
+                              id="Vector"
+                              d="M0,0V3"
+                              transform="translate(500 190)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                            />
+                            <path
+                              id="Vector-2"
+                              data-name="Vector"
+                              d="M0,0V3"
+                              transform="translate(508 190)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                            />
+                            <path
+                              id="Vector-3"
+                              data-name="Vector"
+                              d="M0,0H17"
+                              transform="translate(495.5 197.09)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                            />
+                            <path
+                              id="Vector-4"
+                              data-name="Vector"
+                              d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z"
+                              transform="translate(495 191.5)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="1.5"
+                            />
+                            <path
+                              id="Vector-5"
+                              data-name="Vector"
+                              d="M0,0H24V24H0Z"
+                              transform="translate(492 188)"
+                              fill="none"
+                              opacity="0"
+                            />
+                            <path
+                              id="Vector-6"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(507.2 201.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector-7"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(507.2 204.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector-8"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(503.501 201.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector-9"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(503.501 204.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector-10"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(499.8 201.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
+                            <path
+                              id="Vector-11"
+                              data-name="Vector"
+                              d="M.495.5H.5"
+                              transform="translate(499.8 204.2)"
+                              fill="none"
+                              stroke="#0f172a"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                            />
                           </g>
                         </g>
                       </svg>
-                      
                     </div>
                     <div>
                       <label for="birthDate_Profile">Birthdate</label>
@@ -1340,8 +1268,8 @@
                   style="width: 180px !important"
                   class="main-btn invoice-submit-btn2"
                 >
-                  <span class="main-text shopper-profile-create-invoice"
-                    ><svg
+                  <span class="main-text shopper-profile-create-invoice">
+                    <svg
                       id="vuesax_linear_add-square"
                       data-name="vuesax/linear/add-square"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1391,8 +1319,8 @@
                         />
                       </g>
                     </svg>
-                    New Invoice</span
-                  >
+                    New Invoice
+                  </span>
                 </button>
 
                 <!-- DataTable Element -->
@@ -1441,7 +1369,6 @@
       </div>
     </section>
     <!-- Shopper Profile -->
-
     <!-- New Invoice -->
     <section id="new-invoice" class="d-none ps-2 pt-3">
       <div class="container-fluid">
@@ -1500,8 +1427,8 @@
                       </g>
                     </g>
                   </svg>
-                  Change User</a
-                >
+                  Change User
+                </a>
               </div>
             </div>
             <br />
@@ -1511,6 +1438,7 @@
                   <label for="invoiceNumber"> Invoice Number </label>
                   <input
                     type="text"
+                    required
                     id="invoiceNumber"
                     class="form-control custom-input-box"
                     placeholder="#IN-5021554854"
@@ -1518,10 +1446,41 @@
                 </div>
               </div>
               <div class="col-md-6">
+                <div id="mall-dropdown">
+                  <label for="mall"> Mall </label>
+                  <select
+                    id="mall"
+                    required
+                    class="form-select custom-input-box"
+                  >
+                    <option selected>Choose a Mall</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
                 <div id="store-dropdown">
-                  <label for="store"> Store </label>
-                  <select id="store" class="form-select custom-input-box">
-                    <option selected>Choose a Store</option>
+                  <label for="store">Store</label>
+                  <select
+                    id="store"
+                    required
+                    class="form-select custom-input-box"
+                  >
+                    <option selected value="">Choose a Store</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div id="raffle-dropdown">
+                  <label for="raffle"> Raffle </label>
+                  <select
+                    id="raffle"
+                    required
+                    class="form-select custom-input-box"
+                  >
+                    <option selected>Choose a Raffle</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -1534,6 +1493,7 @@
                   <div class="date-input-container">
                     <input
                       type="date"
+                      required
                       id="purshaseDate"
                       class="form-control custom-input-box"
                       placeholder="mm/dd/yyyy"
@@ -1679,6 +1639,7 @@
                   <label for="invoicePrice"> Invoice Value </label>
                   <input
                     type="text"
+                    required
                     id="invoicePrice"
                     class="form-control custom-input-box"
                     placeholder="13,512 US$"
@@ -1688,8 +1649,8 @@
 
               <div id="invoice-submit" class="mt-4">
                 <button id="submit" class="main-btn invoice-submit-btn">
-                  <span class="main-text"
-                    ><svg
+                  <span class="main-text">
+                    <svg
                       id="vuesax_linear_add-square"
                       data-name="vuesax/linear/add-square"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1739,8 +1700,8 @@
                         />
                       </g>
                     </svg>
-                    Add Invoice</span
-                  >
+                    Add Invoice
+                  </span>
                 </button>
               </div>
             </div>
@@ -1788,8 +1749,8 @@
               </div>
               <div class="col-md-4 col-lg-12 col-xl-3">
                 <a class="main-link add-another-invoice">
-                  <span
-                    ><svg
+                  <span>
+                    <svg
                       id="vuesax_linear_add-square"
                       data-name="vuesax/linear/add-square"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1840,13 +1801,13 @@
                       </g>
                     </svg>
                   </span>
-                  Add another Invoice</a
-                >
+                  Add another Invoice
+                </a>
               </div>
               <div class="col-md-3 col-lg-12 col-xl-3">
-                <a class="text-dark text-end shopper-profile-btn"
-                  ><span
-                    ><svg
+                <a class="text-dark text-end shopper-profile-btn">
+                  <span>
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
@@ -1891,8 +1852,8 @@
                       </g>
                     </svg>
                   </span>
-                  Back to Shopper Profile</a
-                >
+                  Back to Shopper Profile
+                </a>
               </div>
             </div>
           </div>
@@ -1917,222 +1878,546 @@
     ></script>
 
     <script>
-      // dom loaded
       document.addEventListener("DOMContentLoaded", () => {
-        // Initialize DataTable
-        function initializeDataTable(selector) {
-          if (!$.fn.DataTable) {
-            console.error("DataTable plugin is not loaded");
-            return;
-          }
-
-          // check if there is already a DataTable instance
-          if ($(selector).DataTable()) {
-            $(selector).DataTable().destroy();
-          }
-          // Custom sorting for DD/MM/YYYY format
-
-          if (selector === "#inVoicesTable") {
-            $(selector).DataTable({
-              paging: true,
-              searching: false,
-              info: true,
-              lengthChange: false,
-              responsive: true,
-              ordering: true,
-              // scroll
-              scrollX: true,
-
-              columnDefs: [
-                { type: "date-dd-mm-yyyy", targets: 1 }, // Enable custom date sorting for "Birthdate" column (index 3)
-              ],
-              language: {
-                search: "Filter records:",
-                emptyTable: "No shoppers found",
-                paginate: {
-                  previous: "&lt;",
-                  next: "&gt;",
-                },
-              },
-            });
-          } else {
-            $(selector).DataTable({
-              paging: true,
-              lengthChange: false,
-              searching: false,
-              info: true,
-              responsive: true,
-              ordering: true,
-              // scroll
-              scrollX: true,
-
-              columnDefs: [
-                { type: "date-dd-mm-yyyy", targets: 3 }, // Enable custom date sorting for "Birthdate" column (index 3)
-                { orderable: false, targets: [1, 2] }, // Disable ordering for "Phone Number" (index 1) and "ID Number" (index 2)
-              ],
-              language: {
-                search: "Filter records:",
-                emptyTable: "No shoppers found",
-                paginate: {
-                  previous: "&lt;",
-                  next: "&gt;",
-                },
-              },
-            });
-          }
-        }
-
-        // Find Shopper Vars
-        const submitShopperSection = document.getElementById("shopper-submit");
-        const phoneNumber = document.getElementById("phoneNumber");
-        const nationalId = document.getElementById("nationalId");
-        const findShopperSection = document.getElementById("find-shopper");
-
-        // Shopper Details Vars
-        const shopperDetailsSection =
-          document.getElementById("shopper-details");
-
-        const initiateInvoicesBtns =
-          document.querySelectorAll(".create-invoice");
-        const createShopper = document.querySelector(".register-new-shopper");
-        const viewProfilesBtns = document.querySelectorAll(
-          ".view-shopper-profile"
-        );
-
-        // New Invoice Vars
-        const newInvoiceSection = document.getElementById("new-invoice");
-        const submitInvoiceButton = document.querySelector(
-          ".invoice-submit-btn"
-        );
-        const shopperProfileBtn = document.querySelector(
-          ".shopper-profile-btn"
-        );
-        const formContainer = document.querySelector("#form-container"); // Replace with your form's parent container ID
-        const successMessage = document.querySelector(".success-message");
-        const formFields = document.querySelectorAll(
-          "#invoiceNumber, #store, #purshaseDate, #invoicePrice"
-        );
-        const addAnotherInvoice = document.querySelector(
-          ".add-another-invoice"
-        );
-
-        // Shopper Profile Vars
-        const shopperProfileSection =
-          document.getElementById("shopper-profile");
-
-        const shopperProfileCreateInvoice = document.querySelector(
-          ".shopper-profile-create-invoice"
-        );
-
-        // shopper-not-found Vars
-        const shopperNotFoundSection =
-          document.getElementById("shopper-not-found");
-        const backBtn = document.querySelector(".back-btn");
-
-        // Global Vars
-        const changeUserBtns = document.querySelectorAll(".change-user-btn");
-
-        // Decrease the opacity of the form container
-        if (submitInvoiceButton && successMessage) {
-          submitInvoiceButton.addEventListener("click", () => {
-            // Show the success message with smooth transition
-            successMessage.classList.add("show"); // Add 'show' class to make it visible
-
-            // Disable all form fields
-            formFields.forEach((field) => {
-              field.disabled = true;
-            });
-
-            if (formContainer) {
-              formContainer.style.opacity = "0.5"; // Reduce opacity
-              formContainer.style.pointerEvents = "none"; // Prevent interactions
-            }
-
-            // Optionally disable the submit button itself
-            submitInvoiceButton.disabled = true;
+        //find shopper button on click.
+        $("#submit").click(async function () {
+          await findShoppers();
+        });
+        //change User
+        document
+          .getElementById("changeUserBtn")
+          .addEventListener("click", function () {
+            ShowFindShopper();
           });
-        }
-
-        if (addAnotherInvoice) {
-          addAnotherInvoice.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent default link behavior if needed
-
-            // Hide the success message
-            successMessage.classList.remove("show");
-
-            // Reset form fields and re-enable them
-            formFields.forEach((field) => {
-              field.disabled = false; // Re-enable fields
-              if (field.type === "select-one") {
-                field.selectedIndex = 0; // Reset dropdown to default value
-              } else if (field.type !== "button" && field.type !== "submit") {
-                field.value = ""; // Clear other field values
-              }
-            });
-
-            // Restore the form container's opacity and pointer-events
-            if (formContainer) {
-              formContainer.style.opacity = "1"; // Restore opacity
-              formContainer.style.pointerEvents = "auto"; // Allow interactions
-            }
-
-            // Re-enable the submit button
-            submitInvoiceButton.disabled = false;
+        //register new shopper
+        document
+          .getElementById("register-new-shopper")
+          .addEventListener("click", function () {
+            registerNewShopper();
           });
-        }
+        // Event listener for mall dropdown
+        document.getElementById("mall").addEventListener("change", function () {
+          const selectedMall = this.value; // Get selected mall ID
+          console.log("Selected Mall ID:", selectedMall);
 
-        ShowAndHide();
-
-        function ShowAndHide() {
-          // initializeDataTable("#inVoicesTable");
-          submitShopperSection.addEventListener("click", () => {
-            findShopperSection.classList.add("d-none");
-            shopperDetailsSection.classList.remove("d-none");
-            initializeDataTable("#shopperTable");
-          });
-
-          initiateInvoicesBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              shopperDetailsSection.classList.add("d-none");
-              newInvoiceSection.classList.remove("d-none");
-            });
-          });
-
-          createShopper.addEventListener("click", () => {
-            shopperDetailsSection.classList.add("d-none");
-            shopperNotFoundSection.classList.remove("d-none");
-          });
-
-          backBtn.addEventListener("click", () => {
-            shopperNotFoundSection.classList.add("d-none");
-            findShopperSection.classList.remove("d-none");
-          });
-          shopperProfileBtn.addEventListener("click", () => {
-            newInvoiceSection.classList.add("d-none");
-            shopperProfileSection.classList.remove("d-none");
-            initializeDataTable("#inVoicesTable");
-          });
-
-          viewProfilesBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              shopperProfileSection.classList.remove("d-none");
-              initializeDataTable("#inVoicesTable");
-              shopperDetailsSection.classList.add("d-none");
-            });
-          });
-
-          changeUserBtns.forEach((btn) => {
-            btn.addEventListener("click", () => {
-              window.location.href = "index.html";
-            });
-          });
-
-          shopperProfileCreateInvoice.addEventListener("click", () => {
-            shopperProfileSection.classList.add("d-none");
-            newInvoiceSection.classList.remove("d-none");
-          });
-        }
+          // Fetch and populate stores based on selected mall
+          getStoresByMall(selectedMall);
+        });
+        //show user profile
+        $(document).on("click", ".view-profile", function (event) {
+          event.preventDefault();
+          let shopperId = $(this).data("id");
+          showShopperProfileData(shopperId);
+        });
       });
+      // Initialize DataTable
+
+      function initializeDataTable(selector) {
+        if (!$.fn.DataTable) {
+          console.error("DataTable plugin is not loaded");
+          return;
+        }
+        // Custom sorting for DD/MM/YYYY format
+
+        $(selector).DataTable({
+          paging: true,
+          searching: false,
+          info: true,
+          responsive: true,
+          ordering: true,
+          // scroll
+          scrollX: true,
+          columnDefs: [
+            { type: "date-dd-mm-yyyy", targets: 3 }, // Enable custom date sorting for "Birthdate" column (index 3)
+            { orderable: false, targets: [1, 2] }, // Disable ordering for "Phone Number" (index 1) and "ID Number" (index 2)
+          ],
+          language: {
+            search: "Filter records:",
+            emptyTable: "No shoppers found",
+            paginate: {
+              previous: "&lt;",
+              next: "&gt;",
+            },
+          },
+        });
+      }
+
+      // Find Shopper Vars
+      const submitShopperSection = document.getElementById("shopper-submit");
+      const phoneNumber = document.getElementById("phoneNumber");
+      const nationalId = document.getElementById("nationalId");
+      const findShopperSection = document.getElementById("find-shopper");
+
+      // Shopper Details Vars
+      const shopperDetailsSection = document.getElementById("shopper-details");
+
+      let initiateInvoicesBtns = document.querySelectorAll(".create-invoice");
+
+      // New Invoice Vars
+      const newInvoiceSection = document.getElementById("new-invoice");
+      const submitInvoiceButton = document.querySelector(".invoice-submit-btn");
+      const formContainer = document.querySelector("#form-container"); // Replace with your form's parent container ID
+      const successMessage = document.querySelector(".success-message");
+      const formFields = document.querySelectorAll(
+        "#invoiceNumber, #store, #purshaseDate, #invoicePrice"
+      );
+      const addAnotherInvoice = document.querySelector(".add-another-invoice");
+      var shopperIdd;
+      // Decrease the opacity of the form container
+      if (submitInvoiceButton && successMessage) {
+        submitInvoiceButton.addEventListener("click", async () => {
+          await createPurshaseInvoice(shopperIdd);
+          // Show the success message with smooth transition
+          successMessage.classList.add("show"); // Add 'show' class to make it visible
+
+          // Disable all form fields
+          formFields.forEach((field) => {
+            field.disabled = true;
+          });
+
+          if (formContainer) {
+            formContainer.style.opacity = "0.5"; // Reduce opacity
+            formContainer.style.pointerEvents = "none"; // Prevent interactions
+          }
+
+          // Optionally disable the submit button itself
+          submitInvoiceButton.disabled = true;
+        });
+      }
+
+      if (addAnotherInvoice) {
+        addAnotherInvoice.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default link behavior if needed
+
+          // Hide the success message
+          successMessage.classList.remove("show");
+
+          // Reset form fields and re-enable them
+          formFields.forEach((field) => {
+            field.disabled = false; // Re-enable fields
+            if (field.type === "select-one") {
+              field.selectedIndex = 0; // Reset dropdown to default value
+            } else if (field.type !== "button" && field.type !== "submit") {
+              field.value = ""; // Clear other field values
+            }
+          });
+
+          // Restore the form container's opacity and pointer-events
+          if (formContainer) {
+            formContainer.style.opacity = "1"; // Restore opacity
+            formContainer.style.pointerEvents = "auto"; // Allow interactions
+          }
+
+          // Re-enable the submit button
+          submitInvoiceButton.disabled = false;
+        });
+      }
+
+      function showShopperProfileData(shopperId) {
+        $.ajax({
+          type: "GET",
+          url:
+            parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+            "/api/data/v9.1/blser_shopperses?$filter=blser_shoppersid eq " +
+            shopperId,
+          async: true,
+          headers: {
+            "OData-MaxVersion": "4.0",
+            "OData-Version": "4.0",
+            "Content-Type": "application/json; charset=utf-8",
+            Accept: "application/json",
+            Prefer: "odata.include-annotations=*",
+          },
+          success: function (data) {
+            console.log("Shopper Data:", data);
+            showShopperProfilePage();
+          },
+          error: function (xhr) {
+            console.error("Error fetching shopper profile:", xhr);
+          },
+        });
+      }
+
+      function showShopperProfilePage() {
+        shopperDetailsSection.classList.add("d-none");
+        document.getElementById("shopper-profile").classList.remove("d-none");
+      }
+
+      // Supraa 10/2/2025
+      async function createPurshaseInvoice(shopperId) {
+        console.log("Creating Invoice for Shopper ID:", shopperId);
+
+        const ShopperId = shopperId;
+        const invoiceNumber = document.getElementById("invoiceNumber").value;
+        const store = document.getElementById("store").value;
+        const mall = document.getElementById("mall").value;
+        const raffle = document.getElementById("raffle").value;
+        const purchaseDate = document.getElementById("purshaseDate").value;
+        let invoicePrice = document.getElementById("invoicePrice").value;
+        invoicePrice = parseFloat(invoicePrice);
+
+        var record = {};
+        record.blser_invoicenumber = invoiceNumber; // Text
+        record["blser_ShoppingStore@odata.bind"] = `/blser_stores(${store})`; // Lookup
+        record.blser_dateofpurchase = new Date(purchaseDate).toISOString(); // Date Time
+        record.blser_amount = Number(parseFloat(invoicePrice).toFixed(4)); // Currency
+        record["blser_ShoppingMall@odata.bind"] = `/blser_malls(${mall})`; // Lookup
+        record["blser_Raffle@odata.bind"] = `/blser_raffles(${raffle})`; // Lookup
+
+        console.log("Record: ", record);
+
+        parent.Xrm.WebApi.createRecord("blser_purchaseinvoice", record).then(
+          function success(result) {
+            var newId = result.id;
+            console.log(newId);
+          },
+          function (error) {
+            console.log(error.message);
+          }
+        );
+      }
+
+      async function getAllRaffles() {
+        $.ajax({
+          type: "GET",
+          url:
+            parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+            "/api/data/v9.1/blser_raffles?$select=blser_raffleid,blser_name",
+          async: true,
+          headers: {
+            "OData-MaxVersion": "4.0",
+            "OData-Version": "4.0",
+            "Content-Type": "application/json; charset=utf-8",
+            Accept: "application/json",
+            Prefer: "odata.include-annotations=*",
+          },
+          success: function (data, textStatus, xhr) {
+            var results = data.value; // Extract the value array
+            console.log("Fetched raffles:", results);
+
+            // Select the raffle dropdown
+            const raffleDropdown = document.getElementById("raffle");
+
+            // Clear existing options
+            raffleDropdown.innerHTML = `<option selected>Choose a Raffle</option>`;
+
+            // Populate dropdown with fetched raffle data
+            for (var i = 0; i < results.length; i++) {
+              var result = results[i];
+              var raffleId = result["blser_raffleid"]; // Raffle ID (GUID)
+              var raffleName = result["blser_name"]; // Raffle Name
+
+              // Create a new option element
+              var option = document.createElement("option");
+              option.value = raffleId; // Use raffle ID as the value
+              option.textContent = raffleName; // Use raffle name as the text
+
+              // Append the option to the dropdown
+              raffleDropdown.appendChild(option);
+            }
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.error("Error fetching raffles:", xhr);
+          },
+        });
+      }
+
+      async function getAllMalls() {
+        const mallDropdown = document.getElementById("mall"); // Select the mall dropdown
+
+        // Clear existing options
+        mallDropdown.innerHTML = `<option selected value="">Choose a Mall</option>`;
+
+        parent.Xrm.WebApi.retrieveMultipleRecords(
+          "blser_mall",
+          "?$select=blser_mallid,blser_name"
+        ).then(
+          function success(results) {
+            console.log("Fetched malls:", results);
+
+            // Populate dropdown with retrieved mall data
+            for (let i = 0; i < results.entities.length; i++) {
+              const result = results.entities[i];
+              const mallId = result["blser_mallid"]; // Guid
+              const mallName = result["blser_name"]; // Text
+
+              // Create a new option element
+              const option = document.createElement("option");
+              option.value = mallId; // Use mall ID as the value
+              option.textContent = mallName; // Use mall name as the text
+
+              // Append the option to the dropdown
+              mallDropdown.appendChild(option);
+            }
+          },
+          function (error) {
+            console.error("Error fetching malls:", error.message);
+          }
+        );
+      }
+
+      // Function to get and populate stores based on selected mall
+      async function getStoresByMall(mallId) {
+        if (!mallId) {
+          // Clear the store dropdown if no mall is selected
+          const storeDropdown = document.getElementById("store");
+          storeDropdown.innerHTML = `<option selected>Choose a Store</option>`;
+          return;
+        }
+
+        $.ajax({
+          type: "GET",
+          url:
+            parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+            "/api/data/v9.1/blser_stores?$select=blser_storeid,blser_name,_blser_mall_value",
+          async: true,
+          headers: {
+            "OData-MaxVersion": "4.0",
+            "OData-Version": "4.0",
+            "Content-Type": "application/json; charset=utf-8",
+            Accept: "application/json",
+            Prefer: "odata.include-annotations=*",
+          },
+          success: function (data, textStatus, xhr) {
+            const results = data.value; // Fetch results from data
+            console.log("Fetched stores:", results);
+
+            // Select the store dropdown
+            const storeDropdown = document.getElementById("store");
+
+            // Clear existing options
+            storeDropdown.innerHTML = `<option selected>Choose a Store</option>`;
+
+            // Filter stores by selected mall
+            const filteredStores = results.filter(
+              (store) => store["_blser_mall_value"] === mallId
+            );
+
+            // Populate dropdown with filtered store data
+            for (let i = 0; i < filteredStores.length; i++) {
+              const result = filteredStores[i];
+              const storeId = result["blser_storeid"]; // Store ID (GUID)
+              const storeName = result["blser_name"]; // Store Name
+
+              // Create a new option element
+              const option = document.createElement("option");
+              option.value = storeId; // Use store ID as the value
+              option.textContent = storeName; // Use store name as the text
+
+              // Append the option to the dropdown
+              storeDropdown.appendChild(option);
+            }
+          },
+          error: function (xhr, textStatus, errorThrown) {
+            console.error("Error fetching stores:", xhr);
+          },
+        });
+      }
+
+      async function findShoppers() {
+        let phoneNumber = $("#phoneNumber").val().trim();
+        let nationalId = $("#nationalId").val().trim();
+
+        let messageContainer = $("#message"); // Target the message display area
+
+        // Clear previous messages
+        messageContainer.text("");
+        // Validate inputs: Only numbers allowed
+        let numberPattern = /^[0-9]+$/;
+
+        if (phoneNumber && !numberPattern.test(phoneNumber)) {
+          messageContainer
+            .text("Phone Number should contain only numbers.")
+            .css("color", "red");
+          return;
+        }
+
+        if (nationalId && !numberPattern.test(nationalId)) {
+          messageContainer
+            .text("National ID should contain only numbers.")
+            .css("color", "red");
+          return;
+        }
+        //validates fields are not empty
+        if (!phoneNumber && !nationalId) {
+          messageContainer
+            .text("Please enter either Phone Number or National ID.")
+            .css("color", "red");
+          return;
+        }
+
+        let filterQuery = [];
+
+        if (phoneNumber) {
+          filterQuery.push(`contains(blser_mobilenumber,'${phoneNumber}')`);
+        }
+        if (nationalId) {
+          filterQuery.push(`contains(blser_idnumber,'${nationalId}')`);
+        }
+
+        let query =
+          filterQuery.length > 0 ? `?$filter=${filterQuery.join(" and ")}` : "";
+
+        $.ajax({
+          type: "GET",
+          url:
+            parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+            `/api/data/v9.1/blser_shopperses${query}`,
+          async: true,
+          headers: {
+            "OData-MaxVersion": "4.0",
+            "OData-Version": "4.0",
+            "Content-Type": "application/json; charset=utf-8",
+            Accept: "application/json",
+            Prefer: "odata.include-annotations=*",
+          },
+          success: function (data) {
+            console.log("Fetched Shoppers:", data.value);
+            if (data.value.length === 0) {
+              showShopperNotFoundMessage();
+            } else {
+              if ($.fn.DataTable.isDataTable("#shopperTable")) {
+                $("#shopperTable").DataTable().destroy();
+              }
+              let tableBody = $("#shopperTable tbody");
+              tableBody.empty(); // Clear existing data
+
+              // Loop through the response data and extract required fields
+              data.value.forEach((shopper) => {
+                let row = `
+                        <tr>
+                            <td>${shopper.blser_fullname || "N/A"}</td>
+                            <td>${shopper.blser_mobilenumber || "N/A"}</td>
+                            <td>${shopper.blser_idnumber || "N/A"}</td>
+                            <td>${
+                              shopper[
+                                "blser_dateofbirth@OData.Community.Display.V1.FormattedValue"
+                              ] || "N/A"
+                            }</td>
+                            <td>
+                                <button class="main-btn create-invoice" data-id="${
+                                  shopper.blser_shoppersid
+                                }">
+                                    <span>
+                                        <svg id="vuesax_linear_add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <g id="add-square">
+                                                <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                                <path id="Vector-2" d="M0,5.333V0" transform="translate(8 5.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                                <path id="Vector-3" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z" transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                            </g>
+                                        </svg>
+                                        Invoice
+                                    </span>
+                                </button>
+                                <a href="#" class="normal-link ms-2 view-profile" data-id="${
+                                  shopper.blser_shoppersid
+                                }">View Profile</a>
+                            </td>
+                        </tr>
+                    `;
+                tableBody.append(row);
+              });
+              ShowShoppersResult();
+              console.log("Table updated with shopper data.");
+            }
+          },
+          error: function (xhr) {
+            console.error("Error fetching data:", xhr);
+          },
+        });
+      }
+      function clearFindShopperForm() {
+        document.getElementById("phoneNumber").value = "";
+        document.getElementById("nationalId").value = "";
+        document.getElementById("message").innerHTML = "";
+        document.getElementById("shopper-not-found-message").innerHTML = "";
+      }
+      function ShowFindShopper() {
+        clearFindShopperForm();
+        shopperDetailsSection.classList.add("d-none");
+        findShopperSection.classList.remove("d-none");
+      }
+
+      function registerNewShopper() {
+        shopperDetailsSection.classList.add("d-none");
+        document.getElementById("shopper-not-found").classList.remove("d-none");
+      }
+
+      function ShowShoppersResult() {
+        findShopperSection.classList.add("d-none");
+        shopperDetailsSection.classList.remove("d-none");
+        initializeDataTable("#shopperTable");
+        initiateInvoicesBtns = document.querySelectorAll(".create-invoice");
+
+        initiateInvoicesBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // get the data-id
+            showShopperCreateInvoice(btn);
+          });
+        });
+      }
+
+      function showShopperCreateInvoice(btn) {
+        let shopperId = btn.getAttribute("data-id");
+        shopperIdd = shopperId;
+        shopperDetailsSection.classList.add("d-none");
+        newInvoiceSection.classList.remove("d-none");
+        console.log("Shopper ID:", shopperIdd);
+        // populate the raffle dropdown
+        getAllMalls();
+        getAllRaffles();
+      }
+
+      function showShopperNotFoundMessage() {
+        let shopperNotFoundMessage = $("#shopper-not-found-message");
+
+        shopperNotFoundMessage.html(`
+            <div class="d-flex align-items-center text-warning">
+                <span class="me-2">
+                    <svg id="info-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27">
+                        <path id="Vector" d="M10,23c5.5,0,10-5.175,10-11.5S15.5,0,10,0,0,5.175,0,11.5,4.5,23,10,23Z"
+                            transform="translate(2 2)" fill="none" stroke="#c77b30" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="1.5"/>
+                        <path id="Vector-2" data-name="Vector" d="M0,0V5" transform="translate(12 9.263)" fill="none"
+                            stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                        <path id="Vector-3" data-name="Vector" d="M0,0H.009" transform="translate(11.995 18)" fill="none"
+                            stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                        <path id="Vector-4" data-name="Vector" d="M0,0H24V27H0Z" fill="none" opacity="0"/>
+                    </svg>
+                </span>
+                <span>No user found with these info. Do you want to register a new shopper?</span>
+            </div>
+            <div class="mt-2">
+                <a href="#" id="createShopper" class="main-link d-flex align-items-center">
+                    <span class="me-1">
+                        <svg id="vuesax_linear_add-square" data-name="vuesax/linear/add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <g id="add-square">
+                                <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none"
+                                    stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                <path id="Vector-2" data-name="Vector" d="M0,5.333V0" transform="translate(8 5.333)" fill="none"
+                                    stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                <path id="Vector-3" data-name="Vector" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                                    transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.2"/>
+                                <path id="Vector-4" data-name="Vector" d="M0,0H16V16H0Z" fill="none" opacity="0"/>
+                            </g>
+                        </svg>
+                    </span>
+                    <span>Register New Shopper</span>
+                </a>
+            </div>
+        `);
+
+        // Add click event listener for createShopper button
+        document
+          .getElementById("createShopper")
+          .addEventListener("click", () => {
+            findShopperSection.classList.add("d-none");
+            document
+              .getElementById("shopper-not-found")
+              .classList.remove("d-none");
+          });
+      }
     </script>
   </body>
 </html>
