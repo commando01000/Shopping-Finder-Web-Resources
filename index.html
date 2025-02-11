@@ -198,8 +198,9 @@
                     <span class="d-flex align-items-center">
                       <label for="nationalId1"></label>
                       <input
-                        type="checkbox"
+                        type="radio"
                         id="nationalId1"
+                        name="documentType"
                         style="width: 24px !important; height: 24px !important"
                         class="form-check-input rounded-5"
                       />
@@ -214,8 +215,9 @@
                     <span class="d-flex align-items-center">
                       <label for="passport"></label>
                       <input
-                        type="checkbox"
+                        type="radio"
                         id="passport"
+                        name="documentType"
                         style="width: 24px !important; height: 24px !important"
                         class="form-check-input rounded-5"
                       />
@@ -225,61 +227,43 @@
                     </span>
                   </div>
                 </div>
-                <div class="col-md-1 pb-1 ms-md-5">
-                  <div id="Driving-License">
-                    <span class="d-flex align-items-center">
-                      <label for="Driving-License"></label>
-                      <input
-                        type="checkbox"
-                        id="Driving-License"
-                        style="width: 24px !important; height: 24px !important"
-                        class="form-check-input rounded-5"
-                      />
-                      <span style="color: #704c38 !important" class="ms-2">
-                        Driving License
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div class="col-md-1 pb-1 ms-md-5">
-                  <div id="Other-ID">
-                    <span class="d-flex align-items-center">
-                      <label for="Other-ID"></label>
-                      <input
-                        type="checkbox"
-                        id="Other-ID"
-                        style="width: 24px !important; height: 24px !important"
-                        class="form-check-input rounded-5"
-                      />
-                      <span style="color: #704c38 !important" class="ms-2">
-                        Other ID
-                      </span>
-                    </span>
-                  </div>
-                </div>
               </div>
+
               <!-- National Id Or Passport Checkboxes -->
               <!-- Full Name & National ID -->
               <div class="row mt-3">
                 <div class="col-md-4">
-                  <div id="full-name">
-                    <label class="fs-6" for="fullName"> Full Name </label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      class="form-control input-box"
-                      placeholder="Enter Full Name"
-                    />
-                  </div>
-                </div>
-                <div class="col-md-4">
                   <div id="national-id2">
-                    <label class="fs-6" for="nationalId2"> National ID </label>
+                    <label class="fs-6" for="nationalId2"> ID Naumber </label>
                     <input
                       type="text"
                       id="nationalId2"
                       class="form-control input-box"
-                      placeholder="Enter National ID"
+                      placeholder="Enter National Number"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-4">
+                  <div id="first-name">
+                    <label class="fs-6" for="firstName"> First Name </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      class="form-control input-box"
+                      placeholder="Enter First Name"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div id="last-name">
+                    <label class="fs-6" for="lastName"> Last Name </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      class="form-control input-box"
+                      placeholder="Enter First Name"
                     />
                   </div>
                 </div>
@@ -294,11 +278,7 @@
                       id="countryCode"
                       class="form-select input-box"
                       aria-label="Default select example"
-                    >
-                      <option value="+20">+20</option>
-                      <option value="+966">+966</option>
-                      <option value="+971">+971</option>
-                    </select>
+                    ></select>
                   </div>
                 </div>
 
@@ -317,311 +297,311 @@
                   </div>
                 </div>
                 <!-- Checkbox for whats app availability -->
-                <div class="col-md-1 pb-1">
-                  <div id="whats-app">
-                    <span class="d-flex align-items-center">
-                      <input
-                        type="checkbox"
-                        id="whatsApp"
-                        style="width: 24px !important; height: 24px !important"
-                        class="form-check-input"
-                      />
-                      <span style="color: #704c38 !important" class="ms-2">
-                        WhatsApp Available
-                      </span>
-                    </span>
+                <!-- <div class="col-md-1 pb-1">
+                                <div id="whats-app">
+                                  <span class="d-flex align-items-center">
+                                    <input
+                                      type="checkbox"
+                                      id="whatsApp"
+                                      style="width: 24px !important; height: 24px !important"
+                                      class="form-check-input"
+                                    />
+                                    <span style="color: #704c38 !important" class="ms-2">
+                                      WhatsApp Available</span
+                                    >
+                                  </span>
+                                </div>
+                              </div>
+                            </div> -->
+                <!-- Phone Number -->
+                <!-- Birthdate & Gender -->
+                <div class="row align-items-center mt-3">
+                  <div class="col-md-4">
+                    <div id="birth-date">
+                      <div
+                        style="
+                          flex-direction: column !important;
+                          align-items: flex-start !important;
+                        "
+                        class="date-input-container"
+                      >
+                        <label for="birthDate"> Birth Day </label>
+                        <input
+                          type="date"
+                          id="birthDate"
+                          class="form-control custom-input-box"
+                          placeholder="mm/dd/yyyy"
+                        />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          style="transform: translateY(-15%) !important"
+                          class="custom-calendar-icon"
+                        >
+                          <g
+                            id="vuesax_linear_calendar"
+                            data-name="vuesax/linear/calendar"
+                            transform="translate(-492 -188)"
+                          >
+                            <g id="calendar">
+                              <path
+                                id="Vector"
+                                d="M0,0V3"
+                                transform="translate(500 190)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-2"
+                                data-name="Vector"
+                                d="M0,0V3"
+                                transform="translate(508 190)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-3"
+                                data-name="Vector"
+                                d="M0,0H17"
+                                transform="translate(495.5 197.09)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-4"
+                                data-name="Vector"
+                                d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z"
+                                transform="translate(495 191.5)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-5"
+                                data-name="Vector"
+                                d="M0,0H24V24H0Z"
+                                transform="translate(492 188)"
+                                fill="none"
+                                opacity="0"
+                              />
+                              <path
+                                id="Vector-6"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(507.2 201.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                              <path
+                                id="Vector-7"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(507.2 204.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                              <path
+                                id="Vector-8"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(503.501 201.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                              <path
+                                id="Vector-9"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(503.501 204.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                              <path
+                                id="Vector-10"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(499.8 201.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                              <path
+                                id="Vector-11"
+                                data-name="Vector"
+                                d="M.495.5H.5"
+                                transform="translate(499.8 204.2)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <!-- drop down for male or female -->
+                    <div id="gender">
+                      <label class="fs-6" for="gender"> Gender </label>
+                      <select
+                        id="gender"
+                        class="form-select input-box"
+                        aria-label="Default select example"
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- Phone Number -->
-              <!-- Birthdate & Gender -->
-              <div class="row align-items-center mt-3">
-                <div class="col-md-4">
-                  <div id="birth-date">
-                    <div
-                      style="
-                        flex-direction: column !important;
-                        align-items: flex-start !important;
-                      "
-                      class="date-input-container"
-                    >
-                      <label for="birthDate"> Birth Day </label>
-                      <input
-                        type="date"
-                        id="birthDate"
-                        class="form-control custom-input-box"
-                        placeholder="mm/dd/yyyy"
-                      />
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        style="transform: translateY(-15%) !important"
-                        class="custom-calendar-icon"
-                      >
-                        <g
-                          id="vuesax_linear_calendar"
-                          data-name="vuesax/linear/calendar"
-                          transform="translate(-492 -188)"
+                <!-- Birthdate & Gender -->
+                <!-- Submission -->
+                <div class="row mt-3 align-items-center flex-row">
+                  <div class="col-md-4">
+                    <button class="main-btn create-new-shopper">
+                      <span>
+                        <svg
+                          id="vuesax_linear_add-square"
+                          data-name="vuesax/linear/add-square"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
                         >
-                          <g id="calendar">
+                          <g id="add-square">
                             <path
                               id="Vector"
-                              d="M0,0V3"
-                              transform="translate(500 190)"
+                              d="M0,0H5.333"
+                              transform="translate(5.333 8)"
                               fill="none"
-                              stroke="#0f172a"
+                              stroke="#231a3e"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              stroke-width="1.5"
+                              stroke-width="1.2"
                             />
                             <path
                               id="Vector-2"
                               data-name="Vector"
-                              d="M0,0V3"
-                              transform="translate(508 190)"
+                              d="M0,5.333V0"
+                              transform="translate(8 5.333)"
                               fill="none"
-                              stroke="#0f172a"
+                              stroke="#231a3e"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              stroke-width="1.5"
+                              stroke-width="1.2"
                             />
                             <path
                               id="Vector-3"
                               data-name="Vector"
-                              d="M0,0H17"
-                              transform="translate(495.5 197.09)"
+                              d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                              transform="translate(1.333 1.333)"
                               fill="none"
-                              stroke="#0f172a"
+                              stroke="#231a3e"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                              stroke-width="1.5"
+                              stroke-width="1.2"
                             />
                             <path
                               id="Vector-4"
                               data-name="Vector"
-                              d="M18,5v8.5c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V5C0,2,1.5,0,5,0h8C16.5,0,18,2,18,5Z"
-                              transform="translate(495 191.5)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              id="Vector-5"
-                              data-name="Vector"
-                              d="M0,0H24V24H0Z"
-                              transform="translate(492 188)"
-                              fill="none"
-                              opacity="0"
-                            />
-                            <path
-                              id="Vector-6"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(507.2 201.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                            <path
-                              id="Vector-7"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(507.2 204.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                            <path
-                              id="Vector-8"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(503.501 201.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                            <path
-                              id="Vector-9"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(503.501 204.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                            <path
-                              id="Vector-10"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(499.8 201.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                            <path
-                              id="Vector-11"
-                              data-name="Vector"
-                              d="M.495.5H.5"
-                              transform="translate(499.8 204.2)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                            />
-                          </g>
-                        </g>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-3">
-                  <!-- drop down for male or female -->
-                  <div id="gender">
-                    <label class="fs-6" for="gender"> Gender </label>
-                    <select
-                      id="gender"
-                      class="form-select input-box"
-                      aria-label="Default select example"
-                    >
-                      <option value="male">Male</option>
-                      <option value="female">Female</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <!-- Birthdate & Gender -->
-              <!-- Submission -->
-              <div class="row mt-3 align-items-center flex-row">
-                <div class="col-md-4">
-                  <button class="main-btn create-new-shopper">
-                    <span>
-                      <svg
-                        id="vuesax_linear_add-square"
-                        data-name="vuesax/linear/add-square"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                      >
-                        <g id="add-square">
-                          <path
-                            id="Vector"
-                            d="M0,0H5.333"
-                            transform="translate(5.333 8)"
-                            fill="none"
-                            stroke="#231a3e"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.2"
-                          />
-                          <path
-                            id="Vector-2"
-                            data-name="Vector"
-                            d="M0,5.333V0"
-                            transform="translate(8 5.333)"
-                            fill="none"
-                            stroke="#231a3e"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.2"
-                          />
-                          <path
-                            id="Vector-3"
-                            data-name="Vector"
-                            d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
-                            transform="translate(1.333 1.333)"
-                            fill="none"
-                            stroke="#231a3e"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="1.2"
-                          />
-                          <path
-                            id="Vector-4"
-                            data-name="Vector"
-                            d="M0,0H16V16H0Z"
-                            fill="none"
-                            opacity="0"
-                          />
-                        </g>
-                      </svg>
-                    </span>
-                    <span class="main-text">Register User</span>
-                  </button>
-                </div>
-
-                <div class="col-md-2">
-                  <a class="text-dark">
-                    <span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                      >
-                        <g
-                          id="vuesax_linear_undo"
-                          data-name="vuesax/linear/undo"
-                          transform="translate(-108 -316)"
-                        >
-                          <g id="undo" transform="translate(108 316)">
-                            <path
-                              id="Vector"
-                              d="M2,6.667H7.333A3.333,3.333,0,0,0,7.333,0H0"
-                              transform="translate(2.753 5.54)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              id="Vector-2"
-                              data-name="Vector"
-                              d="M1.707,3.413,0,1.707,1.707,0"
-                              transform="translate(2.58 3.793)"
-                              fill="none"
-                              stroke="#0f172a"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="1.5"
-                            />
-                            <path
-                              id="Vector-3"
-                              data-name="Vector"
                               d="M0,0H16V16H0Z"
-                              transform="translate(16 16) rotate(180)"
                               fill="none"
                               opacity="0"
                             />
                           </g>
-                        </g>
-                      </svg>
-                    </span>
-                    Back to Search Results
-                  </a>
+                        </svg>
+                      </span>
+                      <span class="main-text">Register User</span>
+                    </button>
+                  </div>
+
+                  <div class="col-md-2">
+                    <a class="text-dark">
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                        >
+                          <g
+                            id="vuesax_linear_undo"
+                            data-name="vuesax/linear/undo"
+                            transform="translate(-108 -316)"
+                          >
+                            <g id="undo" transform="translate(108 316)">
+                              <path
+                                id="Vector"
+                                d="M2,6.667H7.333A3.333,3.333,0,0,0,7.333,0H0"
+                                transform="translate(2.753 5.54)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-2"
+                                data-name="Vector"
+                                d="M1.707,3.413,0,1.707,1.707,0"
+                                transform="translate(2.58 3.793)"
+                                fill="none"
+                                stroke="#0f172a"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                              />
+                              <path
+                                id="Vector-3"
+                                data-name="Vector"
+                                d="M0,0H16V16H0Z"
+                                transform="translate(16 16) rotate(180)"
+                                fill="none"
+                                opacity="0"
+                              />
+                            </g>
+                          </g>
+                        </svg>
+                      </span>
+                      Back to Search Results
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <!--  -->
       </div>
     </section>
     <!-- Shopper Not Found -->
@@ -1382,7 +1362,7 @@
     </section>
     <!-- Shopper Profile -->
     <!-- New Invoice -->
-    <section id="new-invoice" class="d-none ps-2 pt-3">
+    <section id="new-invoice" class="ps-2 pt-3">
       <div class="container-fluid">
         <div class="row flex-row">
           <div class="col-sm-12 col-md-12 col-lg-8 col-xl-6">
@@ -1390,8 +1370,8 @@
               <div class="col-sm-4 col-md-3">
                 <h5 class="title fs-5">New Invoice for</h5>
               </div>
-              <div class="col-sm-4 col-md-2">
-                <h5 class="title fs-5">Adam Bolton</h5>
+              <div class="col-sm-4 col-md-2 ps-0">
+                <h5 class="title fs-5 shopper-name-new-invoice">...</h5>
               </div>
               <div class="col-sm-4 col-md-2">
                 <a class="main-link change-user-btn" style="cursor: pointer">
@@ -1458,6 +1438,21 @@
                 </div>
               </div>
               <div class="col-md-6">
+                <div id="raffle-dropdown">
+                  <label for="raffle"> Raffle </label>
+                  <select
+                    id="raffle"
+                    required
+                    class="form-select custom-input-box"
+                  >
+                    <option selected>Choose a Raffle</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
                 <div id="mall-dropdown">
                   <label for="mall"> Mall </label>
                   <select
@@ -1481,21 +1476,6 @@
                     class="form-select custom-input-box"
                   >
                     <option selected value="">Choose a Store</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div id="raffle-dropdown">
-                  <label for="raffle"> Raffle </label>
-                  <select
-                    id="raffle"
-                    required
-                    class="form-select custom-input-box"
-                  >
-                    <option selected>Choose a Raffle</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
                   </select>
                 </div>
               </div>
@@ -1892,6 +1872,48 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        //   khaled Js Functions 11/2/2025
+
+        function loadCountryCodes() {
+          debugger;
+          $.ajax({
+            type: "GET",
+            url:
+              parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+              "/api/data/v9.1/blser_countrycodes?$select=blser_code,blser_country",
+            async: true,
+            headers: {
+              "OData-MaxVersion": "4.0",
+              "OData-Version": "4.0",
+              "Content-Type": "application/json; charset=utf-8",
+              Accept: "application/json",
+              Prefer: "odata.include-annotations=*",
+            },
+            success: function (data) {
+              console.log(data);
+              var dropdown = $("#countryCode");
+              dropdown.empty(); // Clear existing options
+
+              // Add a default option
+              dropdown.append('<option value="">Select Country Code</option>');
+
+              // Populate the dropdown with retrieved data
+              data.value.forEach(function (item) {
+                var countryCode = item["blser_code"];
+                var countryName = item["blser_country"];
+                dropdown.append(
+                  `<option value="+${countryCode}">+${countryCode} (${countryName})</option>`
+                );
+              });
+            },
+            error: function (xhr) {
+              console.log("Error fetching country codes:", xhr);
+            },
+          });
+        }
+        loadCountryCodes();
+
+        //  end khaled Js Functions 11/2/2025
         //find shopper button on click.
         $("#submit-find").click(function () {
           findShoppers();
@@ -1985,7 +2007,7 @@
       const formContainer = document.querySelector("#form-container"); // Replace with your form's parent container ID
       const successMessage = document.querySelector(".success-message");
       const formFields = document.querySelectorAll(
-        "#invoiceNumber, #store, #purshaseDate, #invoicePrice"
+        "#invoiceNumber, #store, #purshaseDate, #invoicePrice, #mall, #raffle"
       );
       const addAnotherInvoice = document.querySelector(".add-another-invoice");
       var shopperIdd;
@@ -2326,13 +2348,17 @@
           '[data-name="shopper_fullname"]'
         ).textContent;
 
+        let newInvoiceFor = document.getElementsByClassName(
+          "shopper-name-new-invoice"
+        );
+        console.log(newInvoiceFor);
         // Store values
         shopperIdd = shopperId;
-        let shopperFullnamee = shopperFullname;
+        newInvoiceFor[0].textContent = shopperFullname;
         shopperDetailsSection.classList.add("d-none");
         newInvoiceSection.classList.remove("d-none");
         console.log("Shopper ID:", shopperIdd);
-        console.log("Shopper Fullname:", shopperFullnamee);
+        console.log("Shopper Fullname:", shopperFullname);
         // populate the raffle dropdown
         getAllMalls();
         getAllRaffles();
@@ -2418,7 +2444,7 @@
         // Show errors if any
         if (errors.length > 0) {
           Swal.fire({
-            icon: "error",
+            icon: "success",
             title: "Validation Errors",
             html: `<ul style="text-align:left;">${errors
               .map((err) => `<li>${err}</li>`)
@@ -2434,6 +2460,7 @@
         const record = {
           blser_invoicenumber: invoiceNumber, // Text
           "blser_ShoppingStore@odata.bind": `/blser_stores(${store})`, // Lookup
+          "blser_Shopper@odata.bind": `/blser_shopperses(${shopperId})`, // Lookup
           blser_dateofpurchase: new Date(purchaseDate).toISOString(), // Date Time
           blser_amount: Number(parseFloat(invoicePrice).toFixed(4)), // Currency
           "blser_ShoppingMall@odata.bind": `/blser_malls(${mall})`, // Lookup
@@ -2452,7 +2479,10 @@
             icon: "success",
             title: "Success!",
             text: "Purchase Invoice created successfully!",
-            footer: `Invoice ID: ${newId}`,
+            customClass: {
+              icon: "swal-icon-fix",
+            },
+            // footer: `Invoice ID: ${newId}`,
           });
           return false; // Return false indicating no errors
         } catch (error) {
@@ -2461,6 +2491,9 @@
             icon: "error",
             title: "Error",
             text: `Failed to create Purchase Invoice: ${error.message}`,
+            customClass: {
+              icon: "swal-icon-fix",
+            },
           });
           return true; // Return true indicating there was an error
         }
@@ -2547,12 +2580,20 @@
 
       // Function to get and populate stores based on selected mall
       async function getStoresByMall(mallId) {
+        const storeDropdown = document.getElementById("store");
+
         if (!mallId) {
           // Clear the store dropdown if no mall is selected
-          const storeDropdown = document.getElementById("store");
           storeDropdown.innerHTML = `<option selected>Choose a Store</option>`;
           return;
         }
+
+        // Disable the dropdown and show a loading text
+        storeDropdown.innerHTML = `<option selected>Loading stores...</option>`;
+        storeDropdown.disabled = true;
+
+        // Record the start time to ensure at least 1 second of loading
+        const startTime = Date.now();
 
         $.ajax({
           type: "GET",
@@ -2571,34 +2612,49 @@
             const results = data.value; // Fetch results from data
             console.log("Fetched stores:", results);
 
-            // Select the store dropdown
-            const storeDropdown = document.getElementById("store");
-
-            // Clear existing options
-            storeDropdown.innerHTML = `<option selected>Choose a Store</option>`;
-
             // Filter stores by selected mall
             const filteredStores = results.filter(
               (store) => store["_blser_mall_value"] === mallId
             );
 
-            // Populate dropdown with filtered store data
-            for (let i = 0; i < filteredStores.length; i++) {
-              const result = filteredStores[i];
-              const storeId = result["blser_storeid"]; // Store ID (GUID)
-              const storeName = result["blser_name"]; // Store Name
+            // Function to update the dropdown after at least 1 second
+            function updateDropdown() {
+              // Clear existing options
+              storeDropdown.innerHTML = `<option selected>Choose a Store</option>`;
 
-              // Create a new option element
-              const option = document.createElement("option");
-              option.value = storeId; // Use store ID as the value
-              option.textContent = storeName; // Use store name as the text
+              // Populate dropdown with filtered store data
+              for (let i = 0; i < filteredStores.length; i++) {
+                const result = filteredStores[i];
+                const storeId = result["blser_storeid"]; // Store ID (GUID)
+                const storeName = result["blser_name"]; // Store Name
 
-              // Append the option to the dropdown
-              storeDropdown.appendChild(option);
+                // Create a new option element
+                const option = document.createElement("option");
+                option.value = storeId; // Use store ID as the value
+                option.textContent = storeName; // Use store name as the text
+
+                // Append the option to the dropdown
+                storeDropdown.appendChild(option);
+              }
+
+              // Re-enable dropdown after loading is complete
+              storeDropdown.disabled = false;
+            }
+
+            // Ensure the loading stays for at least 1 second
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = 1000 - elapsedTime; // Minimum 1 second
+
+            if (remainingTime > 0) {
+              setTimeout(updateDropdown, remainingTime);
+            } else {
+              updateDropdown();
             }
           },
           error: function (xhr, textStatus, errorThrown) {
             console.error("Error fetching stores:", xhr);
+            storeDropdown.innerHTML = `<option selected>Error loading stores</option>`;
+            storeDropdown.disabled = false;
           },
         });
       }
