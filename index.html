@@ -1362,7 +1362,7 @@
     </section>
     <!-- Shopper Profile -->
     <!-- New Invoice -->
-    <section id="new-invoice" class="ps-2 pt-3">
+    <section id="new-invoice" class="d-none ps-2 pt-3">
       <div class="container-fluid">
         <div class="row flex-row">
           <div class="col-sm-12 col-md-12 col-lg-8 col-xl-6">
@@ -2347,7 +2347,11 @@
         let shopperFullname = row.querySelector(
           '[data-name="shopper_fullname"]'
         ).textContent;
-
+         prepareInvoiceFormValues(shopperId, shopperFullname, shopperDetailsSection, newInvoiceSection);
+      }
+      
+      function prepareInvoiceFormValues(shopperId, shopperFullname, section2Hide, section2Display)
+      {
         let newInvoiceFor = document.getElementsByClassName(
           "shopper-name-new-invoice"
         );
@@ -2355,12 +2359,13 @@
         // Store values
         shopperIdd = shopperId;
         newInvoiceFor[0].textContent = shopperFullname;
-        shopperDetailsSection.classList.add("d-none");
-        newInvoiceSection.classList.remove("d-none");
+        section2Hide.classList.add("d-none");
+        section2Display.classList.remove("d-none");
         console.log("Shopper ID:", shopperIdd);
         console.log("Shopper Fullname:", shopperFullname);
-        // populate the raffle dropdown
+        // populate the mall dropdown
         getAllMalls();
+        // populate the raffle dropdown
         getAllRaffles();
       }
       function showShopperNotFoundMessage() {
@@ -2444,7 +2449,7 @@
         // Show errors if any
         if (errors.length > 0) {
           Swal.fire({
-            icon: "success",
+            icon: "error",
             title: "Validation Errors",
             html: `<ul style="text-align:left;">${errors
               .map((err) => `<li>${err}</li>`)
@@ -2658,6 +2663,7 @@
           },
         });
       }
-    </script>
+   
+   </script>
   </body>
 </html>
