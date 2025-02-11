@@ -133,7 +133,7 @@
             <span class="fs-5">Shopper Not Found</span>
           </span>
           &nbsp;
-          <a class="main-link">
+          <a class="main-link" id="go-back-to-find-user">
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -183,8 +183,53 @@
             Change User
           </a>
         </div>
+        <!-- loader -->
+        <!-- Loader Overlay -->
+        <div id="loader" class="loader-overlay d-none">
+          <span class="loader"></span>
+        </div>
 
-        <!-- Form -->
+        <style>
+          /* Loader Overlay */
+          .loader-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+          }
+
+          /* Loader Animation */
+          .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #fff;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+          }
+
+          /* Rotation Animation */
+          @keyframes rotation {
+            0% {
+              transform: rotate(0deg);
+            }
+
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+        </style>
+
+        <!-- loader -->
+        <!-- FormK -->
         <div class="row mt-3">
           <div class="col-sm-12 col-md-12 col-lg-8 col-xl-7">
             <div class="shopper-not-found-card">
@@ -298,21 +343,21 @@
                 </div>
                 <!-- Checkbox for whats app availability -->
                 <!-- <div class="col-md-1 pb-1">
-                                <div id="whats-app">
-                                  <span class="d-flex align-items-center">
-                                    <input
-                                      type="checkbox"
-                                      id="whatsApp"
-                                      style="width: 24px !important; height: 24px !important"
-                                      class="form-check-input"
-                                    />
-                                    <span style="color: #704c38 !important" class="ms-2">
-                                      WhatsApp Available</span
-                                    >
-                                  </span>
-                                </div>
-                              </div>
-                            </div> -->
+                                            <div id="whats-app">
+                                              <span class="d-flex align-items-center">
+                                                <input
+                                                  type="checkbox"
+                                                  id="whatsApp"
+                                                  style="width: 24px !important; height: 24px !important"
+                                                  class="form-check-input"
+                                                />
+                                                <span style="color: #704c38 !important" class="ms-2">
+                                                  WhatsApp Available</span
+                                                >
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div> -->
                 <!-- Phone Number -->
                 <!-- Birthdate & Gender -->
                 <div class="row align-items-center mt-3">
@@ -325,7 +370,7 @@
                         "
                         class="date-input-container"
                       >
-                        <label for="birthDate"> Birth Day </label>
+                        <label for="birthDate"> Birthday </label>
                         <input
                           type="date"
                           id="birthDate"
@@ -472,10 +517,10 @@
 
                   <div class="col-md-3">
                     <!-- drop down for male or female -->
-                    <div id="gender">
-                      <label class="fs-6" for="gender"> Gender </label>
+                    <div id="formGender">
+                      <label class="fs-6" for="genderSelect"> Gender </label>
                       <select
-                        id="gender"
+                        id="genderSelect"
                         class="form-select input-box"
                         aria-label="Default select example"
                       >
@@ -601,6 +646,11 @@
               </div>
             </div>
           </div>
+          <div id="firstNameError" class="error-message text-danger"></div>
+          <div id="lastNameError" class="error-message text-danger"></div>
+          <div id="countryCodeError" class="error-message text-danger"></div>
+          <div id="phoneNumberError" class="error-message text-danger"></div>
+          <div id="formSuccess" class="text-success"></div>
         </div>
       </div>
     </section>
@@ -951,6 +1001,7 @@
                           </g>
                         </svg>
                       </div>
+
                       <div>
                         <label class="text-muted" for="fullName_profile"
                           >Full Name</label
@@ -958,7 +1009,7 @@
                         <p id="fullName_profile" class="shopperName">
                           Loading...
                         </p>
-
+                        <p id="realId" class="d-none">Loading ....</p>
                         <p class="id_Number1" id="shopperId">Loading...</p>
                       </div>
                     </div>
@@ -1279,7 +1330,6 @@
                 <h1 style="width: 100% !important" class="title fs-5">
                   Previous Invoices
                 </h1>
-
                 <button
                   id="submit"
                   style="width: 180px !important"
@@ -1339,7 +1389,7 @@
                     New Invoice
                   </span>
                 </button>
-
+                <br />
                 <!-- DataTable Element -->
                 <table id="inVoicesTable" class="display w-100">
                   <thead>
@@ -1352,7 +1402,6 @@
                   </thead>
                   <tbody></tbody>
                 </table>
-
                 <!-- DataTable Element -->
               </div>
             </div>
@@ -1873,14 +1922,156 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         //   khaled Js Functions 11/2/2025
+        $(".change-user-btn").click(function () {
+          document.getElementById("new-invoice").classList.add("d-none");
+          document.getElementById("find-shopper").classList.remove("d-none");
+        });
+        $(".create-new-shopper").click(function () {
+          if (validateForm()) {
+            document.getElementById("formSuccess").innerHTML =
+              "Form submitted successfully!";
+            createShopper();
+          }
+        });
+        $("#go-back-to-find-user").click(function () {
+          goToFindShopperAfterSubmitNewShopper();
+        });
+
+        function goToFindShopperAfterSubmitNewShopper() {
+          document.getElementById("shopper-not-found").classList.add("d-none");
+          document.getElementById("find-shopper").classList.remove("d-none");
+        }
+        function validateForm() {
+          let isValid = true;
+
+          // Clear previous error messages
+          document
+            .querySelectorAll(".error-message")
+            .forEach((el) => (el.innerHTML = ""));
+
+          // Validate First Name
+          let firstName = document.getElementById("firstName").value.trim();
+          if (firstName === "") {
+            document.getElementById("firstNameError").innerHTML =
+              "First Name is required.";
+            isValid = false;
+          }
+
+          // Validate Last Name
+          let lastName = document.getElementById("lastName").value.trim();
+          if (lastName === "") {
+            document.getElementById("lastNameError").innerHTML =
+              "Last Name is required.";
+            isValid = false;
+          }
+
+          // Validate Country Code
+          let countryCode = document.getElementById("countryCode").value.trim();
+          if (countryCode === "") {
+            document.getElementById("countryCodeError").innerHTML =
+              "Country Code is required.";
+            isValid = false;
+          }
+
+          // Validate Mobile Number
+          let phoneNumber = document
+            .getElementById("phoneNumber2")
+            .value.trim();
+          if (phoneNumber === "" || isNaN(phoneNumber)) {
+            document.getElementById("phoneNumberError").innerHTML =
+              "Enter a valid Mobile Number.";
+            isValid = false;
+          }
+
+          return isValid;
+        }
+        function createShopper() {
+          $("#loader").removeClass("d-none");
+
+          // Get values from form inputs
+          var countryCode = $("#countryCode").val();
+          var dateOfBirth = $("#birthDate").val();
+          var firstName = $("#firstName").val();
+          var gender = $("#genderSelect").val();
+          var idNumber = $("#nationalId2").val();
+          var idType = $('input[name="documentType"]:checked')
+            .next("span")
+            .text()
+            .trim();
+          var lastName = $("#lastName").val();
+          var mobileNumber = $("#phoneNumber2").val();
+
+          console.log(
+            "Form Data:",
+            countryCode,
+            dateOfBirth,
+            firstName,
+            gender,
+            lastName,
+            mobileNumber,
+            idType,
+            idNumber
+          );
+
+          idType = idType === "Passport" ? 550220001 : 550220000;
+          gender = gender.toLowerCase() === "male" ? 550220001 : 550220000;
+
+          var formattedDateOfBirth = new Date(dateOfBirth).toISOString();
+
+          var data = {
+            blser_dateofbirth: formattedDateOfBirth,
+            blser_firstname: firstName,
+            blser_gender: gender,
+            blser_idnumber: idNumber,
+            blser_idtype: idType,
+            blser_lastname: lastName,
+            blser_mobilenumbershort: mobileNumber,
+          };
+
+          if (countryCode) {
+            data["blser_CountryCode@odata.bind"] =
+              "/blser_countrycodes(" + countryCode + ")";
+          }
+          console.log(data);
+          // Send data to CRM
+          $.ajax({
+            type: "POST",
+            url:
+              parent.Xrm.Utility.getGlobalContext().getClientUrl() +
+              "/api/data/v9.1/blser_shopperses",
+            async: true,
+            headers: {
+              "OData-MaxVersion": "4.0",
+              "OData-Version": "4.0",
+              "Content-Type": "application/json; charset=utf-8",
+              Accept: "application/json",
+              Prefer: "return=representation",
+            },
+            data: JSON.stringify(data),
+            success: function (result) {
+              $("#loader").addClass("d-none");
+              goToFindShopperAfterSubmitNewShopper();
+            },
+            error: function (xhr, textStatus, errorThrown) {
+              console.error("Error creating shopper:", xhr.responseText);
+
+              var errorMessage = xhr.responseText
+                ? JSON.parse(xhr.responseText).error.message
+                : "An unexpected error occurred.";
+
+              $("#firstNameError").removeClass("d-none").text(errorMessage);
+
+              $("#loader-overlay").addClass("d-none");
+            },
+          });
+        }
 
         function loadCountryCodes() {
-          debugger;
           $.ajax({
             type: "GET",
             url:
               parent.Xrm.Utility.getGlobalContext().getClientUrl() +
-              "/api/data/v9.1/blser_countrycodes?$select=blser_code,blser_country",
+              "/api/data/v9.1/blser_countrycodes?$select=blser_countrycodeid,blser_code,blser_country",
             async: true,
             headers: {
               "OData-MaxVersion": "4.0",
@@ -1890,19 +2081,24 @@
               Prefer: "odata.include-annotations=*",
             },
             success: function (data) {
-              console.log(data);
               var dropdown = $("#countryCode");
               dropdown.empty(); // Clear existing options
 
               // Add a default option
               dropdown.append('<option value="">Select Country Code</option>');
 
-              // Populate the dropdown with retrieved data
+              // Populate the dropdown with retrieved data, but skip null or undefined values
               data.value.forEach(function (item) {
                 var countryCode = item["blser_code"];
                 var countryName = item["blser_country"];
+                var countryCodeId = item["blser_countrycodeid"];
+                // Skip rendering if either code or name is missing
+                if (!countryCode || !countryName) {
+                  return;
+                }
+
                 dropdown.append(
-                  `<option value="+${countryCode}">+${countryCode} (${countryName})</option>`
+                  `<option value="${countryCodeId}">+${countryCode} (${countryName})</option>`
                 );
               });
             },
@@ -1911,6 +2107,7 @@
             },
           });
         }
+
         loadCountryCodes();
 
         //  end khaled Js Functions 11/2/2025
@@ -1951,6 +2148,45 @@
             ShowFindShopperFromShopperProfile();
           });
       });
+
+      //   khaled script also 2/11/2025
+      $(".shopper-profile-create-invoice").click(function () {
+        let shopperId = document.getElementById("realId").textContent.trim(); // Get text from <p>
+        let shopperFullname =
+          document.getElementsByClassName("shopperName")[0]?.textContent || "";
+
+        let section2Hide = document.getElementById("shopper-profile");
+        let section2Display = document.getElementById("new-invoice");
+        prepareInvoiceFormValues(
+          shopperId,
+          shopperFullname,
+          section2Hide,
+          section2Display
+        );
+      });
+      function prepareInvoiceFormValues(
+        shopperId,
+        shopperFullname,
+        section2Hide,
+        section2Display
+      ) {
+        let newInvoiceFor = document.getElementsByClassName(
+          "shopper-name-new-invoice"
+        );
+
+        console.log(newInvoiceFor);
+        // Store values
+        shopperIdd = shopperId;
+        newInvoiceFor[0].textContent = shopperFullname;
+        section2Hide.classList.add("d-none");
+        section2Display.classList.remove("d-none");
+        console.log("Shopper ID:", shopperIdd);
+        console.log("Shopper Fullname:", shopperFullname);
+        // populate the mall dropdown
+        getAllMalls();
+        // populate the raffle dropdown
+        getAllRaffles();
+      }
 
       //show user profile
       $(document).on("click", ".view-profile", function (event) {
@@ -2090,6 +2326,7 @@
             $("#shopperId").text(shopper.blser_idnumber || "N/A");
             $("#mobile_Number").text(shopper.blser_mobilenumber || "N/A");
             $("#id_Number2").text(shopper.blser_shoppersid || "N/A");
+            $("#realId").text(shopper.blser_shoppersid || "N/A");
             var gender =
               shopper[
                 "blser_gender@OData.Community.Display.V1.FormattedValue"
@@ -2150,21 +2387,21 @@
 
                 // Append a new row to the table
                 $("#inVoicesTable tbody").append(`
-                <tr>
-                    <td>${date}</td>
-                    <td>${invoiceNo}</td>
-                    <td>${store}</td>
-                    <td>${value}</td>
-                </tr>
-            `);
+                    <tr>
+                        <td>${date}</td>
+                        <td>${invoiceNo}</td>
+                        <td>${store}</td>
+                        <td>${value}</td>
+                    </tr>
+                `);
               });
             } else {
               // If no invoices are found, display a message in the table
               $("#inVoicesTable tbody").append(`
-                        <tr>
-                            <td colspan="4" class="text-center">No invoices found for this shopper.</td>
-                        </tr>
-                    `);
+                            <tr>
+                                <td colspan="4" class="text-center">No invoices found for this shopper.</td>
+                            </tr>
+                        `);
             }
           },
           error: function (xhr) {
@@ -2248,38 +2485,38 @@
               // Loop through the response data and extract required fields
               data.value.forEach((shopper) => {
                 let row = `
-                        <tr>
-                            <td data-name="shopper_fullname">${
-                              shopper.blser_fullname || "N/A"
-                            }</td>
-                            <td>${shopper.blser_mobilenumber || "N/A"}</td>
-                            <td>${shopper.blser_idnumber || "N/A"}</td>
-                            <td>${
-                              shopper[
-                                "blser_dateofbirth@OData.Community.Display.V1.FormattedValue"
-                              ] || "N/A"
-                            }</td>
-                            <td>
-                                <button class="main-btn create-invoice" data-id="${
-                                  shopper.blser_shoppersid
-                                }">
-                                    <span>
-                                        <svg id="vuesax_linear_add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                                            <g id="add-square">
-                                                <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-                                                <path id="Vector-2" d="M0,5.333V0" transform="translate(8 5.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-                                                <path id="Vector-3" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z" transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-                                            </g>
-                                        </svg>
-                                        Invoice
-                                    </span>
-                                </button>
-                                <a href="#" class="normal-link view-profile" data-id="${
-                                  shopper.blser_shoppersid
-                                }">View Profile</a>
-                            </td>
-                        </tr>
-                    `;
+                            <tr>
+                                <td data-name="shopper_fullname">${
+                                  shopper.blser_fullname || "N/A"
+                                }</td>
+                                <td>${shopper.blser_mobilenumber || "N/A"}</td>
+                                <td>${shopper.blser_idnumber || "N/A"}</td>
+                                <td>${
+                                  shopper[
+                                    "blser_dateofbirth@OData.Community.Display.V1.FormattedValue"
+                                  ] || "N/A"
+                                }</td>
+                                <td>
+                                    <button class="main-btn create-invoice" data-id="${
+                                      shopper.blser_shoppersid
+                                    }">
+                                        <span>
+                                            <svg id="vuesax_linear_add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                <g id="add-square">
+                                                    <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                                    <path id="Vector-2" d="M0,5.333V0" transform="translate(8 5.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                                    <path id="Vector-3" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z" transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                                </g>
+                                            </svg>
+                                            Invoice
+                                        </span>
+                                    </button>
+                                    <a href="#" class="normal-link view-profile" data-id="${
+                                      shopper.blser_shoppersid
+                                    }">View Profile</a>
+                                </td>
+                            </tr>
+                        `;
                 tableBody.append(row);
               });
               ShowShoppersResult();
@@ -2347,11 +2584,7 @@
         let shopperFullname = row.querySelector(
           '[data-name="shopper_fullname"]'
         ).textContent;
-         prepareInvoiceFormValues(shopperId, shopperFullname, shopperDetailsSection, newInvoiceSection);
-      }
-      
-      function prepareInvoiceFormValues(shopperId, shopperFullname, section2Hide, section2Display)
-      {
+
         let newInvoiceFor = document.getElementsByClassName(
           "shopper-name-new-invoice"
         );
@@ -2359,54 +2592,53 @@
         // Store values
         shopperIdd = shopperId;
         newInvoiceFor[0].textContent = shopperFullname;
-        section2Hide.classList.add("d-none");
-        section2Display.classList.remove("d-none");
+        shopperDetailsSection.classList.add("d-none");
+        newInvoiceSection.classList.remove("d-none");
         console.log("Shopper ID:", shopperIdd);
         console.log("Shopper Fullname:", shopperFullname);
-        // populate the mall dropdown
-        getAllMalls();
         // populate the raffle dropdown
+        getAllMalls();
         getAllRaffles();
       }
       function showShopperNotFoundMessage() {
         let shopperNotFoundMessage = $("#shopper-not-found-message");
 
         shopperNotFoundMessage.html(`
-            <div class="d-flex align-items-center text-warning">
-                <span class="me-2">
-                    <svg id="info-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27">
-                        <path id="Vector" d="M10,23c5.5,0,10-5.175,10-11.5S15.5,0,10,0,0,5.175,0,11.5,4.5,23,10,23Z"
-                            transform="translate(2 2)" fill="none" stroke="#c77b30" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="1.5"/>
-                        <path id="Vector-2" data-name="Vector" d="M0,0V5" transform="translate(12 9.263)" fill="none"
-                            stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
-                        <path id="Vector-3" data-name="Vector" d="M0,0H.009" transform="translate(11.995 18)" fill="none"
-                            stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-                        <path id="Vector-4" data-name="Vector" d="M0,0H24V27H0Z" fill="none" opacity="0"/>
-                    </svg>
-                </span>
-                <span>No user found with these info. Do you want to register a new shopper?</span>
-            </div>
-            <div class="mt-2">
-                <a href="#" id="createShopper" class="main-link d-flex align-items-center">
-                    <span class="me-1">
-                        <svg id="vuesax_linear_add-square" data-name="vuesax/linear/add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                            <g id="add-square">
-                                <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none"
-                                    stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-                                <path id="Vector-2" data-name="Vector" d="M0,5.333V0" transform="translate(8 5.333)" fill="none"
-                                    stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
-                                <path id="Vector-3" data-name="Vector" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
-                                    transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.2"/>
-                                <path id="Vector-4" data-name="Vector" d="M0,0H16V16H0Z" fill="none" opacity="0"/>
-                            </g>
+                <div class="d-flex align-items-center text-warning">
+                    <span class="me-2">
+                        <svg id="info-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="27" viewBox="0 0 24 27">
+                            <path id="Vector" d="M10,23c5.5,0,10-5.175,10-11.5S15.5,0,10,0,0,5.175,0,11.5,4.5,23,10,23Z"
+                                transform="translate(2 2)" fill="none" stroke="#c77b30" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5"/>
+                            <path id="Vector-2" data-name="Vector" d="M0,0V5" transform="translate(12 9.263)" fill="none"
+                                stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                            <path id="Vector-3" data-name="Vector" d="M0,0H.009" transform="translate(11.995 18)" fill="none"
+                                stroke="#c77b30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                            <path id="Vector-4" data-name="Vector" d="M0,0H24V27H0Z" fill="none" opacity="0"/>
                         </svg>
                     </span>
-                    <span>Register New Shopper</span>
-                </a>
-            </div>
-        `);
+                    <span>No user found with these info. Do you want to register a new shopper?</span>
+                </div>
+                <div class="mt-2">
+                    <a href="#" id="createShopper" class="main-link d-flex align-items-center">
+                        <span class="me-1">
+                            <svg id="vuesax_linear_add-square" data-name="vuesax/linear/add-square" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                <g id="add-square">
+                                    <path id="Vector" d="M0,0H5.333" transform="translate(5.333 8)" fill="none"
+                                        stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                    <path id="Vector-2" data-name="Vector" d="M0,5.333V0" transform="translate(8 5.333)" fill="none"
+                                        stroke="#231a3e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+                                    <path id="Vector-3" data-name="Vector" d="M4.667,13.333h4c3.333,0,4.667-1.333,4.667-4.667v-4C13.333,1.333,12,0,8.667,0h-4C1.333,0,0,1.333,0,4.667v4C0,12,1.333,13.333,4.667,13.333Z"
+                                        transform="translate(1.333 1.333)" fill="none" stroke="#231a3e" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="1.2"/>
+                                    <path id="Vector-4" data-name="Vector" d="M0,0H16V16H0Z" fill="none" opacity="0"/>
+                                </g>
+                            </svg>
+                        </span>
+                        <span>Register New Shopper</span>
+                    </a>
+                </div>
+            `);
 
         // Add click event listener for createShopper button
         document
@@ -2663,7 +2895,6 @@
           },
         });
       }
-   
-   </script>
+    </script>
   </body>
 </html>

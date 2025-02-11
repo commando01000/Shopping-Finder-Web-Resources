@@ -526,3 +526,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     flex-direction: column !important;
   }
 }
+
+@media screen and (min-width: 1200px) {
+  #find-shopper .shopper-card {
+    width: 700px !important;
+  }
+}
