@@ -355,6 +355,12 @@ table.dataTable.display > tbody > tr > * {
   background-color: #e4e7eb;
 }
 
+table.dataTable.stripe > tbody > tr:nth-child(odd) > *,
+table.dataTable.display > tbody > tr:nth-child(odd) > * {
+  box-shadow: none !important;
+  box-shadow: none !important;
+}
+
 /* Apply rounded corners to the first and last cells of even rows */
 #inVoicesTable tbody tr:nth-child(even) td:first-child {
   border-bottom-left-radius: 8px; /* Bottom-left corner rounding */
@@ -370,14 +376,18 @@ table.dataTable.display > tbody > tr > * {
   background-color: #ffffff; /* Light gray for odd rows */
 }
 
+#inVoicesTable tbody tr {
+  height: 52px !important;
+}
+
 #inVoicesTable tbody tr:nth-child(even) {
   background-color: #f5f7fa; /* White for even rows */
 }
 
 /* Hover effect for rows */
-#inVoicesTable tbody tr:hover {
-  background-color: #e4e7eb; /* Slightly darker color on hover */
-}
+/* #inVoicesTable tbody tr:hover {
+  background-color: #e4e7eb; 
+} */
 
 /* Styling the actions */
 .btn-success {
@@ -443,6 +453,7 @@ th {
   text-align: left !important;
   opacity: 1;
 }
+
 table.dataTable th.dt-type-numeric,
 table.dataTable th.dt-type-date,
 table.dataTable td.dt-type-numeric,
@@ -517,7 +528,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .swal2-x-mark,
 .swal2-x-mark-line-left,
 .swal2-x-mark-line-right {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 /* Media queries */
